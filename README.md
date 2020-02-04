@@ -19,7 +19,7 @@ CSS
 JavaScript
 
 ## Wireframes and Screenshots
-![Sketch] (img/rough-sketch.jpg)
+![Sketch](img/rough-sketch.jpg)
 
 ## Future Enhancments
 - Let player split, double down, etc.
