@@ -7,61 +7,206 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="./css/style.css">
 	<script defer src="./js/script.js"></script>
-	<title>Document</title>
+	<title>Blackjack Card Game</title>
 </head>
 
 <body>
 	<section>
-		<div class="total">Player 1's Total: $<span id="playerOneTotal">200</span></div>
-		<div class="totalTwo">Player 2's Total: $<span id="playerTwoTotal">200</span></div>
-		<div class="totalThree">Player 3's Total: $<span id="playerThreeTotal">200</span></div>
-		<div class="totalFour">Player 4's Total: $<span id="playerFourTotal">200</span></div>
-		<div class="totalFive">Player 5's Total: $<span id="playerFiveTotal">200</span></div>
-		<div class="totalSix">Player 6's Total: $<span id="playerSixTotal">200</span></div>
-		<div class="totalSeven">Player 7's Total: $<span id="playerSevenTotal">200</span></div>
+		<h1>USER TOTALS:</h1>
+		<div class="total">Player 1's Total: $<span
+				id="player-one-total">200</span></div>
+		<div class="total-two">Player 2's Total: $<span
+				id="player-two-total">200</span></div>
+		<div class="total-three">Player 3's Total: $<span
+				id="player-three-total">200</span></div>
+		<div class="total-four">Player 4's Total: $<span
+				id="player-four-total">200</span></div>
+		<div class="total-five">Player 5's Total: $<span
+				id="player-five-total">200</span></div>
+		<div class="total-six">Player 6's Total: $<span
+				id="player-six-total">200</span></div>
+		<div class="total-seven">Player 7's Total: $<span
+				id="player-seven-total">200</span></div>
 	</section>
 	<section id="table">
 		<img id="matt" src="../img/table-layout.png">
-			<div class="cardSeven"></div>
-			<div class="cardSevenTwo"></div>
-			<div class="cardSix"></div>
-			<div class="cardSixTwo"></div>
-			<div class="cardFive"></div>
-			<div class="cardFiveTwo"></div>
-			<div class="cardFour"></div>
-			<div class="cardFourTwo"></div>
-			<div class="cardThree"></div>
-			<div class="cardThreeTwo"></div>
-			<div class="cardTwo"></div>
-			<div class="cardTwoTwo"></div>
-			<div class="cardOne"></div>
-			<div class="cardOneTwo"></div>
-			<div class="cardDealer"></div>
-			<div class="cardDealerTwo"></div>
-			<div class="cardDealerThree"></div>
-			<div class="cardDealerFour"></div>
-			<div class="cardDealerFive"></div>
-			<div class="cardDealerSix"></div>
-			<div class="cardDealerSeven"></div>
-			<div class="cardDealerEight"></div>
-			<div class="cardDealerNine"></div>
-			<div class="cardDealerTen"></div>
-			<div class="cardDealerEleven"></div>
-			<div class="cardDealerThirteen"></div>
-			<div class="cardDealerFourteen"></div>
-			<div class="cardDealerFifteen"></div>
-			<div class="cardDealerSixteen"></div>
+		<div class="card-seven"></div>
+		<div class="card-seven-two"></div>
+		<div class="card-six"></div>
+		<div class="card-six-two"></div>
+		<div class="card-five"></div>
+		<div class="card-five-two"></div>
+		<div class="card-four"></div>
+		<div class="card-four-two"></div>
+		<div class="card-three"></div>
+		<div class="card-three-two"></div>
+		<div class="card-two"></div>
+		<div class="card-two-two"></div>
+		<div class="card-one"></div>
+		<div class="card-one-two"></div>
+		<div class="card-dealer"></div>
+		<div class="card-dealer-two"></div>
+		<div class="card-dealer-three"></div>
+		<div class="card-dealer-four"></div>
+		<div class="card-dealer-five"></div>
+		<div class="card-dealer-six"></div>
+		<div class="card-dealer-seven"></div>
+		<div class="card-dealer-eight"></div>
+		<div class="card-dealer-nine"></div>
+		<div class="card-dealer-ten"></div>
+		<div class="card-dealer-eleven"></div>
+		<div class="card-dealer-twelve"></div>
+		<div class="card-dealer-thirteen"></div>
+		<div class="card-dealer-fourteen"></div>
+		<div class="card-dealer-fifteen"></div>
+		<div class="card-dealer-sixteen"></div>
+		<div class="card-dealer-seventeen"></div>
+		<div class="card-seven-three"></div>
+		<div class="card-seven-four"></div>
+		<div class="card-seven-five"></div>
+		<div class="card-seven-six"></div>
+		<div class="card-seven-seven"></div>
+		<div class="card-seven-eight"></div>
+		<div class="card-seven-nine"></div>
+		<div class="card-seven-ten"></div>
+		<div class="card-seven-eleven"></div>
+		<div class="card-seven-twelve"></div>
+		<div class="card-seven-thirteen"></div>
+		<div class="card-seven-fourteen"></div>
+		<div class="card-seven-fifteen"></div>
+		<div class="card-seven-sixteen"></div> 
+		<div class="card-seven-seventeen"></div>
+		<div class="card-six-three"></div>
+		<div class="card-six-four"></div>
+		<div class="card-six-five"></div>
+		<div class="card-six-six"></div>
+		<div class="card-six-seven"></div>
+		<div class="card-six-eight"></div>
+		<div class="card-six-nine"></div>
+		<div class="card-six-ten"></div>
+		<div class="card-six-eleven"></div>
+		<div class="card-six-twelve"></div>
+		<div class="card-six-thirteen"></div>
+		<div class="card-six-fourteen"></div>
+		<div class="card-six-fifteen"></div>
+		<div class="card-six-sixteen"></div> 
+		<div class="card-six-seventeen"></div>
+		<div class="card-five-three"></div>
+		<div class="card-five-four"></div>
+		<div class="card-five-five"></div>
+		<div class="card-five-six"></div>
+		<div class="card-five-seven"></div>
+		<div class="card-five-eight"></div>
+		<div class="card-five-nine"></div>
+		<div class="card-five-ten"></div>
+		<div class="card-five-eleven"></div>
+		<div class="card-five-twelve"></div>
+		<div class="card-five-thirteen"></div>
+		<div class="card-five-fourteen"></div>
+		<div class="card-five-fifteen"></div>
+		<div class="card-five-sixteen"></div> 
+		<div class="card-five-seventeen"></div>
+		<div class="card-four-three"></div>
+		<div class="card-four-four"></div>
+		<div class="card-four-five"></div>
+		<div class="card-four-six"></div>
+		<div class="card-four-seven"></div>
+		<div class="card-four-eight"></div>
+		<div class="card-four-nine"></div>
+		<div class="card-four-ten"></div>
+		<div class="card-four-eleven"></div>
+		<div class="card-four-twelve"></div>
+		<div class="card-four-thirteen"></div>
+		<div class="card-four-fourteen"></div>
+		<div class="card-four-fifteen"></div>
+		<div class="card-four-sixteen"></div> 
+		<div class="card-four-seventeen"></div>
+		<div class="card-three-three"></div>
+		<div class="card-three-four"></div>
+		<div class="card-three-five"></div>
+		<div class="card-three-six"></div>
+		<div class="card-three-seven"></div>
+		<div class="card-three-eight"></div>
+		<div class="card-three-nine"></div>
+		<div class="card-three-ten"></div>
+		<div class="card-three-eleven"></div>
+		<div class="card-three-twelve"></div>
+		<div class="card-three-thirteen"></div>
+		<div class="card-three-fourteen"></div>
+		<div class="card-three-fifteen"></div>
+		<div class="card-three-sixteen"></div> 
+		<div class="card-three-seventeen"></div>
+		<div class="card-two-three"></div>
+		<div class="card-two-four"></div>
+		<div class="card-two-five"></div>
+		<div class="card-two-six"></div>
+		<div class="card-two-seven"></div>
+		<div class="card-two-eight"></div>
+		<div class="card-two-nine"></div>
+		<div class="card-two-ten"></div>
+		<div class="card-two-eleven"></div>
+		<div class="card-two-twelve"></div>
+		<div class="card-two-thirteen"></div>
+		<div class="card-two-fourteen"></div>
+		<div class="card-two-fifteen"></div>
+		<div class="card-two-sixteen"></div> 
+		<div class="card-two-seventeen"></div>
+		<div class="card-one-three"></div>
+		<div class="card-one-four"></div>
+		<div class="card-one-five"></div>
+		<div class="card-one-six"></div>
+		<div class="card-one-seven"></div>
+		<div class="card-one-eight"></div>
+		<div class="card-one-nine"></div>
+		<div class="card-one-ten"></div>
+		<div class="card-one-eleven"></div>
+		<div class="card-one-twelve"></div>
+		<div class="card-one-thirteen"></div>
+		<div class="card-one-fourteen"></div>
+		<div class="card-one-fifteen"></div>
+		<div class="card-one-sixteen"></div> 
+		<div class="card-one-seventeen"></div>
+		<button class="buy-in">BUY IN</button>
+		<button class="buy-in-two">BUY IN</button>
+		<button class="buy-in-three">BUY IN</button>
+		<button class="buy-in-four">BUY IN</button>
+		<button class="buy-in-five">BUY IN</button>
+		<button class="buy-in-six">BUY IN</button>
+		<button class="buy-in-seven">BUY IN</button>
+		<h2 class="player-turn-display">Player <span id="player-turn">1</span>'s
+			Turn:</h2>
 		</img>
 	</section>
 	<section>
-		<div class="winLoss">Player 1 <span>Won/lost</span>: $<span id="lastBetOne">5</span></div>
-		<div class="winLossTwo">Player 2 <span>Won/lost</span>: $<span id="lastBetTwo">5</span></div>
-		<div class="winLossThree">Player 3 <span>Won/lost</span>: $<span id="lastBetThree">5</span></div>
-		<div class="winLossFour">Player 4 <span>Won/lost</span>: $<span id="lastBetFour">5</span></div>
-		<div class="winLossFive">Player 5 <span>Won/lost</span>: $<span id="lastBetFive">5</span></div>
-		<div class="winLossSix">Player 6 <span>Won/lost</span>: $<span id="lastBetSix">5</span></div>
-		<div class="winLossSeven">Player 7 <span>Won/lost</span>: $<span id="lastBetSeven">5</span></div>
-	</section>Seven
-	<section iSevenbuttons"></section>
-</boSeven
-</hSeven
+		<h1>BET RESULTS:</h1>
+		<div class="result">Player 1 <span class="win-loss">Won/lost</span>:
+			$<span id="last-bet-one">5</span></div>
+		<div class="result-two">Player 2 <span
+				class="win-loss-two">Won/lost</span>: $<span
+				id="last-bet-two">5</span></div>
+		<div class="result-three">Player 3 <span
+				class="win-loss-three">Won/lost</span>: $<span
+				id="last-bet-three">5</span></div>
+		<div class="result-four">Player 4 <span
+				class="win-loss-four">Won/lost</span>: $<span
+				id="last-bet-four">5</span></div>
+		<div class="result-five">Player 5 <span
+				class="win-loss-five">Won/lost</span>: $<span
+				id="last-bet-five">5</span></div>
+		<div class="result-six">Player 6 <span
+				class="win-loss-six">Won/lost</span>: $<span
+				id="last-bet-six">5</span></div>
+		<div class="result-seven">Player 7 <span
+				class="win-loss-seven">Won/lost</span>: $<span
+				id="last-bet-seven">5</span></div>
+	</section>
+	<section id="btn-sect">
+		<button class="button-choices" id="split">SPLIT</button>
+		<button class="button-choices" id="doub-down">DOUBLE DOWN</button>
+		<button class="button-choices" id="ins">INSURANCE</button>
+		<button class="button-choices" id="stay">STAY</button>
+		<button class="button-choices" id="hit">HIT</button>
+	</section>
+</body>
+
+</html>

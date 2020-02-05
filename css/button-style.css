@@ -1,0 +1,74 @@
+.button-choices {
+	position: absolute;
+	justify-content: center;
+	background-color: #04773C;
+	border: 3px solid #CFA646;
+	color: #EFF4F0;
+	border-radius: 50%;
+	height: 3%;
+	width: 3%;
+}
+
+#hit {
+	bottom: 10%;
+	right: 40%;
+}
+
+.buy-in,
+.buy-in-two,
+.buy-in-three,
+.buy-in-four,
+.buy-in-five,
+.buy-in-six,
+.buy-in-seven {
+	position: absolute;
+	justify-content: center;
+	background-color: #04773C;
+	border: 3px solid #CFA646;
+	color: #EFF4F0;
+	border-radius: 40%;
+	height: 8%;
+	width: 6%;
+}
+
+.buy-in {
+	transform: rotate(-22deg);
+	top: 55%;
+	right: 7.9%;
+}
+
+.buy-in-two {
+	transform: rotate(-15.3deg);
+	top: 62%;
+	right: 20.3%;
+}
+
+.buy-in-three {
+	transform: rotate(-7deg);
+	top: 66%;
+	right: 33.5%;
+}
+
+.buy-in-four {
+	transform: rotate(0deg);
+	top: 67%;
+	right: 47%;
+}
+
+.buy-in-five {
+	transform: rotate(7deg);
+	top: 66%;
+	left: 33.5%;
+}
+
+.buy-in-six {
+	transform: rotate(15.3deg);
+	top: 62%;
+	left: 20.3%;
+}
+
+.buy-in-seven {
+	transform: rotate(22deg);
+	top: 55%;
+	left: 7.9%;
+}
