@@ -5,16 +5,302 @@
 	box-sizing: border-box;
 	margin: 0;
 	font-family: Arial, Helvetica, sans-serif;
-	background-color: #04763E;
-    outline: 0 !important;
+	background-color: white;
+	outline: 0 !important;
 }
- 
+
+body {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	grid-template-rows: 4fr 1fr;
+	height: 100vh;
+}
+
+section {
+	display: grid;
+}
+
+.total,
+.totalTwo,
+.totalThree,
+.totalFour,
+.totalFive,
+.totalSix,
+.totalSeven,
+.winLoss,
+.winLossTwo,
+.winLossThree,
+.winLossFour,
+.winLossFive,
+.winLossSix,
+.winLossSeven,
+span {
+	background-color: #04773C;
+	color: #CFA646;
+	height: 100%;
+	display: inline;
+}
+
+#buttons {
+	/* display: flexbox; */
+	background-color: blue;
+	grid-column-start: 1;
+	grid-column-end: 4;
+}
+
 #table {
-	display: block;
 	position: relative;
-	right: -19%;
-	width: 1200px;
-	height: 800px;
+}
+
+#matt {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.cardSeven,
+.cardSevenTwo,
+.cardSix,
+.cardSixTwo,
+.cardFive,
+.cardFiveTwo,
+.cardFour,
+.cardFourTwo,
+.cardThree,
+.cardThreeTwo,
+.cardTwo,
+.cardTwoTwo,
+.cardOne,
+.cardOneTwo,
+.cardDealer,
+.cardDealerTwo,
+.cardDealerThree,
+.cardDealerFour,
+.cardDealerFive,
+.cardDealerSix,
+.cardDealerSeven,
+.cardDealerEight,
+.cardDealerNine,
+.cardDealerTen,
+.cardDealerEleven,
+.cardDealerTwelve,
+.cardDealerThirteen,
+.cardDealerFourteen,
+.cardDealerFifteen,
+.cardDealerSixteen {
+	width: 70px;
+	height: 100px;
 	background-size: cover;
-	background-image: url(../img/table-layout.png);
+	position: absolute;
+	border: 1px solid black;
+}
+
+.cardSeven {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(21deg);
+	top: 32.5%;
+	right: 79.5%;
+}
+
+.cardSevenTwo {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(21deg);
+	top: 36.5%;
+	right: 81.6%;
+}
+
+.cardSix {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(15deg);
+	top: 38%;
+	right: 69%;
+}
+
+.cardSixTwo {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(15deg);
+	top: 42%;
+	right: 71%;
+}
+
+.cardFive {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(7deg);
+	top: 42%;
+	right: 57.5%;
+}
+
+.cardFiveTwo {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(7deg);
+	top: 46%;
+	right: 59%;
+}
+
+.cardFour {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 43%;
+	right: 45%;
+}
+
+.cardFourTwo {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 47.5%;
+	right: 46.5%;
+}
+
+.cardThree {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(-7deg);
+	top: 41%;
+	right: 34%;
+}
+
+.cardThreeTwo {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(-7deg);
+	top: 46%;
+	right: 35%;
+}
+
+.cardTwo {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(-15deg);
+	top: 37%;
+	right: 22%;
+}
+
+.cardTwoTwo {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(-15deg);
+	top: 42.5%;
+	right: 22.5%;
+}
+
+.cardOne {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(-21deg);
+	top: 31%;
+	right: 11%;
+}
+
+.cardOneTwo {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(-21deg);
+	top: 36.5%;
+	right: 11.5%;
+}
+
+.cardDealer {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 68%;
+}
+
+.cardDealerTwo {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 60%;
+}
+
+.cardDealerThree {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 56%;
+}
+
+.cardDealerFour {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 52%;
+}
+
+.cardDealerFive {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 48%;
+}
+
+.cardDealerSix {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 44%;
+}
+
+.cardDealerSeven {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 40%;
+}
+
+.cardDealerEight {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 36%;
+}
+
+.cardDealerNine {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 32%;
+}
+
+.cardDealerTen {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 28%;
+}
+
+.cardDealerEleven {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 24%;
+}
+
+.cardDealerTwelve {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 20%;
+}
+
+.cardDealerThirteen {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 20%;
+}
+
+.cardDealerFourteen {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 16%;
+}
+
+.cardDealerFifteen {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 12%;
+}
+
+.cardDealerSixteen {
+	background-image: url(../img/cards/diamonds/diamonds-A.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 8%;
 }
