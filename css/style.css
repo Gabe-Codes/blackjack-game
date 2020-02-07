@@ -22,36 +22,6 @@ section {
 	display: grid;
 }
 
-.total,
-.total-two,
-.total-three,
-.total-four,
-.total-five,
-.total-six,
-.total-seven,
-.result,
-.result-two,
-.result-three,
-.result-four,
-.result-five,
-.result-six,
-.result-seven,
-span,
-.player-turn-display,
-h1 {
-	background-color: #04773C;
-	color: #CFA646;
-	display: inline;
-	font-size: 2.8vmin;
-	
-}
-
-.player-turn-display {
-	position: absolute;
-	bottom: -5%;
-	right: 42.5%;
-}
-
 #btn-sect {
 	background-color: #04773C;
 	color: #CFA646;
@@ -69,3 +39,46 @@ h1 {
 	width: 100%;
 }
 
+.player-turn-display,
+#player-turn {
+	background-color: #04773C;
+	color: #CFA646;
+	font-size: 4vmin;
+	bottom: -6%;
+	right: 42.5%;
+}
+
+.totalsStyle,
+.resultsStyle {
+	background-color: #04773C;
+	color: #CFA646;
+}
+
+#total,
+#total-two,
+#total-three,
+#total-four,
+#total-five,
+#total-six,
+#total-seven,
+#result,
+#result-two,
+#result-three,
+#result-four,
+#result-five,
+#result-six,
+#result-seven,
+span,
+h1 {
+	background-color: #04773C;
+	display: inline;
+	font-size: 2.8vmin;
+}
+
+.totals-hide {
+	visibility: hidden;
+}
+
+.results-hide {
+	visibility: hidden;
+}
