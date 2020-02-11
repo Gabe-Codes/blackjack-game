@@ -60,10 +60,15 @@
 	width: 6%;
 }
 
+.join-buttons {
+	display: none;
+}
+
 #buy-in {
 	transform: rotate(-22deg);
 	top: 55%;
 	right: 7.9%;
+	display: block;
 }
 
 #buy-in-two {

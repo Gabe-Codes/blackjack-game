@@ -76,9 +76,9 @@ h1 {
 }
 
 .totals-hide {
-	visibility: hidden;
+	display: none;
 }
 
 .results-hide {
-	visibility: hidden;
+	display: none;
 }

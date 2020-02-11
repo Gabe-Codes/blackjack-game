@@ -21,7 +21,10 @@ CSS
 JavaScript
 
 ## Wireframes and Screenshots
+### Initial Sketch
 ![Sketch](img/rough-sketch.jpg)
+
+### Board shoing all entities
 ![All Board Entities](img/board-entities.png)
 
 ## Future Enhancments

@@ -1,5 +1,6 @@
 .cards-hide {
 	visibility: hidden;
+	background-image: url(../img/cards/backs/blue.svg);
 }
 
 #card-seven,
@@ -32,7 +33,8 @@
 #card-dealer-fourteen,
 #card-dealer-fifteen,
 #card-dealer-sixteen,
-#card-dealer-seventeen {
+#card-dealer-seventeen,
+#card-dealer-hider {
 	width: 72px;
 	height: 100px;
 	background-size: cover;
@@ -153,952 +155,822 @@
 }
 
 #card-seven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(21deg);
 	top: 32.5%;
 	right: 79.5%;
 }
 
 #card-seven-two {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(21deg);
 	top: 36.5%;
 	right: 81.6%;
 }
 
 #card-seven-three {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 23%;
 	left: 1%;
 }
 
 #card-seven-four {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 23%;
 	left: 4%;
 }
 
 #card-seven-five {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 23%;
 	left: 7%;
 }
 
 #card-seven-six {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 23%;
 	left: 10%;
 }
 
 #card-seven-seven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 19%;
 	left: 1%;
 }
 
 #card-seven-eight {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 19%;
 	left: 4%;
 }
 
 #card-seven-nine {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 19%;
 	left: 7%;
 }
 
 #card-seven-ten {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 19%;
 	left: 10%;
 }
 
 #card-seven-eleven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 15%;
 	left: 1%;
 }
 
 #card-seven-twelve {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 15%;
 	left: 4%;
 }
 
 #card-seven-thirteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 15%;
 	left: 7%;
 }
 
 #card-seven-fourteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 15%;
 	left: 10%;
 }
 
 #card-seven-fifteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 11%;
 	left: 1%;
 }
 
 #card-seven-sixteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 11%;
 	left: 4%;
 }
 
 #card-seven-seventeen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 11%;
 	left: 7%;
 }
 
 #card-six {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(15deg);
 	top: 38%;
 	right: 69%;
 }
 
 #card-six-two {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(15deg);
 	top: 42%;
 	right: 71%;
 }
 
 #card-six-three {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 17%;
 	left: 15%;
 }
 
 #card-six-four {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 17%;
 	left: 18%;
 }
 
 #card-six-five {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 17%;
 	left: 21%;
 }
 
 #card-six-six {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 17%;
 	left: 24%;
 }
 
 #card-six-seven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	left: 15%;
 }
 
 #card-six-eight {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	left: 18%;
 }
 
 #card-six-nine {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	left: 21%;
 }
 
 #card-six-ten {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	left: 24%;
 }
 
 #card-six-eleven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	left: 15%;
 }
 
 #card-six-twelve {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	left: 18%;
 }
 
 #card-six-thirteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	left: 21%;
 }
 
 #card-six-fourteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	left: 24%;
 }
 
 #card-six-fifteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 4%;
 	left: 15%;
 }
 
 #card-six-sixteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 4%;
 	left: 18%;
 }
 
 #card-six-seventeen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 4%;
 	left: 21%;
 }
 
 #card-five {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(7deg);
 	top: 41.5%;
 	right: 57.5%;
 }
 
 #card-five-two {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(7deg);
 	top: 45.5%;
 	right: 59%;
 }
 
 #card-five-three {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 13%;
 	left: 29%;
 }
 
 #card-five-four {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 13%;
 	left: 32%;
 }
 
 #card-five-five {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 13%;
 	left: 35%;
 }
 
 #card-five-six {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 13%;
 	left: 38%;
 }
 
 #card-five-seven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 9%;
 	left: 29%;
 }
 
 #card-five-eight {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 9%;
 	left: 32%;
 }
 
 #card-five-nine {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 9%;
 	left: 35%;
 }
 
 #card-five-ten {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 9%;
 	left: 38%;
 }
 
 #card-five-eleven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 5%;
 	left: 29%;
 }
 
 #card-five-twelve {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 5%;
 	left: 32%;
 }
 
 #card-five-thirteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 5%;
 	left: 35%;
 }
 
 #card-five-fourteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 5%;
 	left: 38%;
 }
 
 #card-five-fifteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 1%;
 	left: 29%;
 }
 
 #card-five-sixteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 1%;
 	left: 32%;
 }
 
 #card-five-seventeen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 1%;
 	left: 35%;
 }
 
 #card-four {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 42.5%;
 	right: 45%;
 }
 
 #card-four-two {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 47%;
 	right: 46.5%;
 }
 
 #card-four-three {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	left: 43.5%;
 }
 
 #card-four-four {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	left: 46.5%;
 }
 
 #card-four-five {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	left: 49.5%;
 }
 
 #card-four-six {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	left: 52.5%;
 }
 
 #card-four-seven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	left: 43.5%;
 }
 
 #card-four-eight {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	left: 46.5%;
 }
 
 #card-four-nine {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	left: 49.5%;
 }
 
 #card-four-ten {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	left: 52.5%;
 }
 
 #card-four-eleven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 4%;
 	left: 43.5%;
 }
 
 #card-four-twelve {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 4%;
 	left: 46.5%;
 }
 
 #card-four-thirteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 4%;
 	left: 49.5%;
 }
 
 #card-four-fourteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 4%;
 	left: 52.5%;
 }
 
 #card-four-fifteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 0%;
 	left: 43.5%;
 }
 
 #card-four-sixteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 0%;
 	left: 46.5%;
 }
 
 #card-four-seventeen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 0%;
 	left: 49.5%;
 }
 
 #card-three {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(-7deg);
 	top: 41%;
 	right: 34%;
 }
 
 #card-three-two {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(-7deg);
 	top: 46%;
 	right: 35%;
 }
 
 #card-three-three {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 13%;
 	right: 38%;
 }
 
 #card-three-four {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 13%;
 	right: 35%;
 }
 
 #card-three-five {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 13%;
 	right: 32%;
 }
 
 #card-three-six {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 13%;
 	right: 29%;
 }
 
 #card-three-seven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 9%;
 	right: 38%;
 }
 
 #card-three-eight {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 9%;
 	right: 35%;
 }
 
 #card-three-nine {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 9%;
 	right: 32%;
 }
 
 #card-three-ten {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 9%;
 	right: 29%;
 }
 
 #card-three-eleven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 5%;
 	right: 38%;
 }
 
 #card-three-twelve {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 5%;
 	right: 35%;
 }
 
 #card-three-thirteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 5%;
 	right: 32%;
 }
 
 #card-three-fourteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 5%;
 	right: 29%;
 }
 
 #card-three-fifteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 1%;
 	right: 38%;
 }
 
 #card-three-sixteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 1%;
 	right: 35%;
 }
 
 #card-three-seventeen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 1%;
 	right: 32%;
 }
 
 #card-two {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(-15deg);
 	top: 37%;
 	right: 22%;
 }
 
 #card-two-two {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(-15deg);
 	top: 42.5%;
 	right: 22.5%;
 }
 
 #card-two-three {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 17%;
 	right: 24%;
 }
 
 #card-two-four {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 17%;
 	right: 21%;
 }
 
 #card-two-five {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 17%;
 	right: 18%;
 }
 
 #card-two-six {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 17%;
 	right: 15%;
 }
 
 #card-two-seven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	right: 24%;
 }
 
 #card-two-eight {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	right: 21%;
 }
 
 #card-two-nine {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	right: 18%;
 }
 
 #card-two-ten {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 12%;
 	right: 15%;
 }
 
 #card-two-eleven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	right: 24%;
 }
 
 #card-two-twelve {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	right: 21%;
 }
 
 #card-two-thirteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	right: 18%;
 }
 
 #card-two-fourteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 8%;
 	right: 15%;
 }
 
 #card-two-fifteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 4%;
 	right: 24%;
 }
 
 #card-two-sixteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 4%;
 	right: 21%;
 }
 
 #card-two-seventeen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 4%;
 	right: 18%;
 }
 
 #card-one {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(-21deg);
 	top: 31%;
 	right: 11%;
 }
 
 #card-one-two {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(-21deg);
 	top: 36.5%;
 	right: 11.5%;
 }
 
 #card-one-three {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 23%;
 	right: 10%;
 }
 
 #card-one-four {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 23%;
 	right: 7%;
 }
 
 #card-one-five {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	right: 4%;
 	bottom: 23%;
 }
 
 #card-one-six {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 23%;
 	right: 1%;
 }
 
 #card-one-seven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 19%;
 	right: 10%;
 }
 
 #card-one-eight {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 19%;
 	right: 7%;
 }
 
 #card-one-nine {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 19%;
 	right: 4%;
 }
 
 #card-one-ten {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 19%;
 	right: 1%;
 }
 
 #card-one-eleven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 15%;
 	right: 10%;
 }
 
 #card-one-twelve {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 15%;
 	right: 7%;
 }
 
 #card-one-thirteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 15%;
 	right: 4%;
 }
 
 #card-one-fourteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 15%;
 	right: 1%;
 }
 
 #card-one-fifteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 11%;
 	right: 10%;
 }
 
 #card-one-sixteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 11%;
 	right: 7%;
 }
 
 #card-one-seventeen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	bottom: 11%;
 	right: 4%;
 }
 
 #card-dealer {
-	background-image: url(../img/cards/backs/blue.svg);
+	transform: rotate(0deg);
+	top: 4%;
+	right: 68%;
+}
+
+#card-dealer-hider {
 	transform: rotate(0deg);
 	top: 4%;
 	right: 68%;
 }
 
 #card-dealer-two {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 60%;
 }
 
 #card-dealer-three {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 56%;
 }
 
 #card-dealer-four {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 52%;
 }
 
 #card-dealer-five {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 48%;
 }
 
 #card-dealer-six {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 44%;
 }
 
 #card-dealer-seven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 40%;
 }
 
 #card-dealer-eight {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 36%;
 }
 
 #card-dealer-nine {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 32%;
 }
 
 #card-dealer-ten {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 28%;
 }
 
 #card-dealer-eleven {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 24%;
 }
 
 #card-dealer-twelve {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 20%;
 }
 
 #card-dealer-thirteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 16%;
 }
 
 #card-dealer-fourteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 12%;
 }
 
 #card-dealer-fifteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 8%;
 }
 
 #card-dealer-sixteen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 4%;
 }
 
 #card-dealer-seventeen {
-	background-image: url(../img/cards/backs/blue.svg);
 	transform: rotate(0deg);
 	top: 4%;
 	right: 0%;
