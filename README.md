@@ -31,3 +31,4 @@ JavaScript
 - Let player split
 - Tip the dealer
 - Dynamic card scrolling
+- Makes aces 1 or 11, not just 11
