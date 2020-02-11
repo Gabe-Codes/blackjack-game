@@ -4,7 +4,7 @@ const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q',
     'K', 'A'];
 const playerInfo = {
 	one: {
-		bet: 5,
+		bet: 20,
 		value: 0,
 		card: {},
 		hand: 2,
@@ -12,7 +12,7 @@ const playerInfo = {
 		total: 200
 	},
 	two: {
-		bet: 5,
+		bet: 20,
 		value: 0,
 		card: {},
 		hand: 2,
@@ -20,7 +20,7 @@ const playerInfo = {
 		total: 200
 	},
 	three: {
-		bet: 5,
+		bet: 20,
 		value: 0,
 		card: {},
 		hand: 2,
@@ -28,7 +28,7 @@ const playerInfo = {
 		total: 200
 	},
 	four: {
-		bet: 5,
+		bet: 20,
 		value: 0,
 		card: {},
 		hand: 2,
@@ -36,7 +36,7 @@ const playerInfo = {
 		total: 200
 	},
 	five: {
-		bet: 5,
+		bet: 20,
 		value: 0,
 		card: {},
 		hand: 2,
@@ -44,7 +44,7 @@ const playerInfo = {
 		total: 200
 	},
 	six: {
-		bet: 5,
+		bet: 20,
 		value: 0,
 		card: {},
 		hand: 2,
@@ -52,7 +52,7 @@ const playerInfo = {
 		total: 200
 	},
 	seven: {
-		bet: 5,
+		bet: 20,
 		value: 0,
 		card: {},
 		hand: 2,
@@ -68,13 +68,15 @@ const playerInfo = {
 
 /*----- app's state (variables) -----*/
 let masterDeck, shuffledDeck, hand, pay, dealerHand, bet, insPay, insBet,
-	players, suit, face;
+	players, suit, face, turn;
 let insurance = false;
 
 /*----- cached element references -----*/
 const textEls = {
 	totalsText: document.querySelectorAll('[data-totals]'),
-	resultsText: document.querySelectorAll('[data-results]')
+	resultsText: document.querySelectorAll('[data-results]'),
+	turnText: document.getElementById('player-turn-display'),
+	playerTurnText: document.getElementById('player-turn')
 }
 const buttonEls = {
 	choiceBtns: document.getElementsByClassName('button-choices'),
@@ -101,22 +103,22 @@ const playerCards = {
 	playerDealerHider: document.getElementById('card-dealer-hider')
 }
 const numTotal = {
-    oneTotal: document.getElementById('player-one-total'),
-    twoTotal: document.getElementById('player-two-total'),
-    threeTotal: document.getElementById('player-three-total'),
-    fourTotal: document.getElementById('player-four-total'),
-    fiveTotal: document.getElementById('player-five-total'),
-    sixTotal: document.getElementById('player-six-total'),
-    sevenTotal: document.getElementById('player-seven-total')
+	oneTotal: document.getElementById('player-one-total'),
+	twoTotal: document.getElementById('player-two-total'),
+	threeTotal: document.getElementById('player-three-total'),
+	fourTotal: document.getElementById('player-four-total'),
+	fiveTotal: document.getElementById('player-five-total'),
+	sixTotal: document.getElementById('player-six-total'),
+	sevenTotal: document.getElementById('player-seven-total')
 }
 const numResults = {
-    oneResult: document.getElementById('last-bet-one'),
-    twoResult: document.getElementById('last-bet-two'),
-    threeResult: document.getElementById('last-bet-three'),
-    fourResult: document.getElementById('last-bet-four'),
-    fiveResult: document.getElementById('last-bet-five'),
-    sixResult: document.getElementById('last-bet-six'),
-    sevenResult: document.getElementById('last-bet-seven')
+	oneResult: document.getElementById('last-bet-one'),
+	twoResult: document.getElementById('last-bet-two'),
+	threeResult: document.getElementById('last-bet-three'),
+	fourResult: document.getElementById('last-bet-four'),
+	fiveResult: document.getElementById('last-bet-five'),
+	sixResult: document.getElementById('last-bet-six'),
+	sevenResult: document.getElementById('last-bet-seven')
 }
 
 /*----- event listeners -----*/
@@ -128,7 +130,8 @@ document.getElementById('start')
 	.addEventListener('click', startRound)
 document.getElementById('reset')
 	.addEventListener('click', init)
-
+document.getElementById('dealer')
+	.addEventListener('click', dealerBtn)
 /*----- functions -----*/
 init()
 
@@ -233,6 +236,7 @@ function postRoundClean() {
 			elem.style.visibility = 'hidden';
 			elem.style.backgroundImage = 'url(../img/cards/backs/blue.svg)';
 		})
+	textEls.turnText.style.visibility = 'hidden';
 	
 	playerInfo.one.hand = 2;
 	playerInfo.two.hand = 2;
@@ -241,6 +245,14 @@ function postRoundClean() {
 	playerInfo.five.hand = 2;
 	playerInfo.six.hand = 2;
 	playerInfo.seven.hand = 2;
+	
+	playerInfo.one.bet = 20;
+	playerInfo.two.bet = 20;
+	playerInfo.three.bet = 20;
+	playerInfo.four.bet = 20;
+	playerInfo.five.bet = 20;
+	playerInfo.six.bet = 20;
+	playerInfo.seven.bet = 20;
 }
 
 // Allows players to join/leave the game
@@ -269,36 +281,66 @@ function joinLeave(e) {
 		players.splice(players.indexOf(playerIdx), 1);
 		Array.from(textEls.totalsText)
 			.forEach(function(elem) {
-				if (elem.dataset.totals == playerIdx) elem.style.display = 'none';
+				if (elem.dataset.totals == playerIdx) elem.style.display =
+					'none';
 			})
 		Array.from(textEls.resultsText)
 			.forEach(function(elem) {
-				if (elem.dataset.results == playerIdx) elem.style.display = 'none';
+				if (elem.dataset.results == playerIdx) elem.style.display =
+					'none';
 			})
 	}
 }
 
 // Starts the next round
 function startRound(e) {
-	card = 2;
-	
 	if (e.target.tagName !== 'BUTTON' || players.length < 1 || turn !== 100)
 		return;
 	else {
 		postRoundClean();
-		initialHand()
+		playerBets();
+		initialHand();
 	}
 	
 	// Reshuffles deck when it gets low
 	if (shuffledDeck.length < 50) {
 		shuffledDeck = [];
-        handleShuffleDeck();
-    }
+		handleShuffleDeck();
+	}
+}
+
+// Takes each players bet
+function playerBets() {
+	if (players.includes('0') === true) {
+		playerInfo.one.total -= playerInfo.one.bet;
+	}
+	if (players.includes('1') === true) {
+		playerInfo.two.total -= playerInfo.two.bet;
+	}
+	if (players.includes('2') === true) {
+		playerInfo.three.total -= playerInfo.three.bet;
+	}
+	if (players.includes('3') === true) {
+		playerInfo.four.total -= playerInfo.four.bet;
+	}
+	if (players.includes('4') === true) {
+		playerInfo.five.total -= playerInfo.five.bet;
+	}
+	if (players.includes('5') === true) {
+		playerInfo.six.total -= playerInfo.six.bet;
+	}
+	if (players.includes('6') === true) {
+		playerInfo.seven.total -= playerInfo.seven.bet;
+	}
+	displayUpdate();
 }
 
 // Deals every joined players and the dealers intial hand
 function initialHand() {
-	turn = 0;
+	turn = 1;
+	card = 2;
+	textEls.playerTurnText.innerText = turn;
+	textEls.turnText.style.visibility = 'visible';
 	
 	if (players.includes('0') === true) {
 		playerCards.playerOne[0].style.visibility = 'visible';
@@ -404,14 +446,8 @@ function choices(e) {
 	
 	if (e.target.tagName !== 'BUTTON') return;
 	else if (pressed === 'HIT') hit();
-	else if (pressed === 'STAY') {
-		turn += 1;
-		card = 2;
-	}
-	else if (pressed === 'DOUBLE DOWN') {
-		if (playerInfo.hand === 2) doubleDown();
-		else return;
-	}
+	else if (pressed === 'STAY') stay();
+	else if (pressed === 'DOUBLE DOWN') doubleDown();
 	else if (pressed === 'INS') {
 		if (playerCards.playerDealer[1].rank === 'A') ins();
 		else return;
@@ -423,82 +459,217 @@ function choices(e) {
 
 // Gives the player a new card when hit
 function hit() {
-	if (turn === 0 && players.includes('0') === true) {
-		playerCards.playerOne[card].style.visibility = 'visible';
-		playerInfo.one.card = shuffledDeck.shift();
-		playerCards.playerOne[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
-		playerInfo.one.value += playerInfo.one.card.value;
-		bust(playerInfo.one.value);
-		playerInfo.one.hand += 1;
-		card += 1;
+	if (turn === 1 && players.includes('0') === true) {
+		if (playerInfo.one.value === 21) stay();
+		else {
+			playerCards.playerOne[card].style.visibility = 'visible';
+			playerInfo.one.card = shuffledDeck.shift();
+			playerCards.playerOne[card].style.backgroundImage =
+				`url(../img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
+			playerInfo.one.value += playerInfo.one.card.value;
+			bust(playerInfo.one.value);
+			playerInfo.one.hand += 1;
+			card += 1;
+		}
 	}
-	else if (turn === 1 && players.includes('1') === true) {
-		playerCards.playerTwo[card].style.visibility = 'visible';
-		playerInfo.two.card = shuffledDeck.shift();
-		playerCards.playerTwo[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
-		playerInfo.two.value += playerInfo.two.card.value;
-		bust(playerInfo.two.value);
-		playerInfo.two.hand += 1;
-		card += 1;
+	else if (turn === 2 && players.includes('1') === true) {
+		if (playerInfo.two.value === 21) stay();
+		else {
+			playerCards.playerTwo[card].style.visibility = 'visible';
+			playerInfo.two.card = shuffledDeck.shift();
+			playerCards.playerTwo[card].style.backgroundImage =
+				`url(../img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
+			playerInfo.two.value += playerInfo.two.card.value;
+			bust(playerInfo.two.value);
+			playerInfo.two.hand += 1;
+			card += 1;
+		}
 	}
-	else if (turn === 2 && players.includes('2') === true) {
-		playerCards.playerThree[card].style.visibility = 'visible';
-		playerInfo.three.card = shuffledDeck.shift();
-		playerCards.playerThree[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
-		playerInfo.three.value += playerInfo.three.card.value;
-		bust(playerInfo.three.value);
-		playerInfo.three.hand += 1;
-		card += 1;
+	else if (turn === 3 && players.includes('2') === true) {
+		if (playerInfo.three.value === 21) stay();
+		else {
+			playerCards.playerThree[card].style.visibility = 'visible';
+			playerInfo.three.card = shuffledDeck.shift();
+			playerCards.playerThree[card].style.backgroundImage =
+				`url(../img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
+			playerInfo.three.value += playerInfo.three.card.value;
+			bust(playerInfo.three.value);
+			playerInfo.three.hand += 1;
+			card += 1;
+		}
 	}
-	else if (turn === 3 && players.includes('3') === true) {
-		playerCards.playerFour[card].style.visibility = 'visible';
-		playerInfo.four.card = shuffledDeck.shift();
-		playerCards.playerFour[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
-		playerInfo.four.value += playerInfo.four.card.value;
-		bust(playerInfo.four.value);
-		playerInfo.four.hand += 1;
-		card += 1;
+	else if (turn === 4 && players.includes('3') === true) {
+		if (playerInfo.four.value === 21) stay();
+		else {
+			playerCards.playerFour[card].style.visibility = 'visible';
+			playerInfo.four.card = shuffledDeck.shift();
+			playerCards.playerFour[card].style.backgroundImage =
+				`url(../img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
+			playerInfo.four.value += playerInfo.four.card.value;
+			bust(playerInfo.four.value);
+			playerInfo.four.hand += 1;
+			card += 1;
+		}
 	}
-	else if (turn === 4 && players.includes('4') === true) {
-		playerCards.playerFive[card].style.visibility = 'visible';
-		playerInfo.five.card = shuffledDeck.shift();
-		playerCards.playerFive[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
-		playerInfo.five.value += playerInfo.five.card.value;
-		bust(playerInfo.five.value);
-		playerInfo.five.hand += 1;
-		card += 1;
+	else if (turn === 5 && players.includes('4') === true) {
+		if (playerInfo.five.value === 21) stay();
+		else {
+			playerCards.playerFive[card].style.visibility = 'visible';
+			playerInfo.five.card = shuffledDeck.shift();
+			playerCards.playerFive[card].style.backgroundImage =
+				`url(../img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
+			playerInfo.five.value += playerInfo.five.card.value;
+			bust(playerInfo.five.value);
+			playerInfo.five.hand += 1;
+			card += 1;
+		}
 	}
-	else if (turn === 5 && players.includes('5') === true) {
-		playerCards.playerSix[card].style.visibility = 'visible';
-		playerInfo.six.card = shuffledDeck.shift();
-		playerCards.playerSix[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
-		playerInfo.six.value += playerInfo.six.card.value;
-		bust(playerInfo.six.value);
-		playerInfo.six.hand += 1;
-		card += 1;
+	else if (turn === 6 && players.includes('5') === true) {
+		if (playerInfo.six.value === 21) stay();
+		else {
+			playerCards.playerSix[card].style.visibility = 'visible';
+			playerInfo.six.card = shuffledDeck.shift();
+			playerCards.playerSix[card].style.backgroundImage =
+				`url(../img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
+			playerInfo.six.value += playerInfo.six.card.value;
+			bust(playerInfo.six.value);
+			playerInfo.six.hand += 1;
+			card += 1;
+		}
 	}
-	else if (turn === 6 && players.includes('6') === true) {
-		playerCards.playerSeven[card].style.visibility = 'visible';
-		playerInfo.seven.card = shuffledDeck.shift();
-		playerCards.playerSeven[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
-		playerInfo.seven.value += playerInfo.seven.card.value;
-		bust(playerInfo.seven.value);
-		playerInfo.seven.hand += 1;
-		card += 1;
-    }
-    else dealerPlay();
+	else if (turn === 7 && players.includes('6') === true) {
+		if (playerInfo.seven.value === 21) stay();
+		else {
+			playerCards.playerSeven[card].style.visibility = 'visible';
+			playerInfo.seven.card = shuffledDeck.shift();
+			playerCards.playerSeven[card].style.backgroundImage =
+				`url(../img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
+			playerInfo.seven.value += playerInfo.seven.card.value;
+			bust(playerInfo.seven.value);
+			playerInfo.seven.hand += 1;
+			card += 1;
+		}
+	}
 }
+
+// Lets player stay with current hand
+function stay() {
+	if (turn <= players.length) {
+		turn += 1;
+		card = 2;
+	}
+	turnUpdater();
+}
+
 
 // Lets the player double down after the inital hand
 function doubleDown() {
-	
+	if (turn === 1 && players.includes('0') === true && playerInfo.one.hand ===
+		2) {
+		if (playerInfo.one.value === 21) stay();
+		else {
+			playerInfo.one.total -= playerInfo.one.bet;
+			playerCards.playerOne[3].style.visibility = 'visible';
+			playerInfo.one.card = shuffledDeck.shift();
+			playerCards.playerOne[3].style.backgroundImage =
+				`url(../img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
+			playerInfo.one.value += playerInfo.one.card.value;
+			playerInfo.one.hand += 1;
+			playerInfo.one.bet *= 2;
+			stay();
+		}
+	}
+	else if (turn === 2 && players.includes('1') === true && playerInfo.two
+		.hand === 2) {
+		if (playerInfo.two.value === 21) stay();
+		else {
+			playerInfo.two.total -= playerInfo.two.bet;
+			playerCards.playerTwo[3].style.visibility = 'visible';
+			playerInfo.two.card = shuffledDeck.shift();
+			playerCards.playerTwo[3].style.backgroundImage =
+				`url(../img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
+			playerInfo.two.value += playerInfo.two.card.value;
+			playerInfo.two.hand += 1;
+			playerInfo.two.bet *= 2;
+			stay();
+		}
+	}
+	else if (turn === 3 && players.includes('2') === true && playerInfo.three
+		.hand === 2) {
+		if (playerInfo.three.value === 21) stay();
+		else {
+			playerInfo.three.total -= playerInfo.three.bet;
+			playerCards.playerThree[3].style.visibility = 'visible';
+			playerInfo.three.card = shuffledDeck.shift();
+			playerCards.playerThree[3].style.backgroundImage =
+				`url(../img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
+			playerInfo.three.value += playerInfo.three.card.value;
+			playerInfo.three.hand += 1;
+			playerInfo.three.bet *= 2;
+			stay();
+		}
+	}
+	else if (turn === 4 && players.includes('3') === true && playerInfo.four
+		.hand === 2) {
+		if (playerInfo.four.value === 21) stay();
+		else {
+			playerInfo.four.total -= playerInfo.four.bet;
+			playerCards.playerFour[3].style.visibility = 'visible';
+			playerInfo.four.card = shuffledDeck.shift();
+			playerCards.playerFour[3].style.backgroundImage =
+				`url(../img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
+			playerInfo.four.value += playerInfo.four.card.value;
+			playerInfo.four.hand += 1;
+			playerInfo.four.bet *= 2;
+			stay();
+		}
+	}
+	else if (turn === 5 && players.includes('4') === true && playerInfo.five
+		.hand === 2) {
+		if (playerInfo.five.value === 21) stay();
+		else {
+			playerInfo.five.total -= playerInfo.five.bet;
+			playerCards.playerFive[3].style.visibility = 'visible';
+			playerInfo.five.card = shuffledDeck.shift();
+			playerCards.playerFive[3].style.backgroundImage =
+				`url(../img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
+			playerInfo.five.value += playerInfo.five.card.value;
+			playerInfo.five.hand += 1;
+			playerInfo.five.bet *= 2;
+			stay();
+		}
+	}
+	else if (turn === 6 && players.includes('5') === true && playerInfo.six
+		.hand === 2) {
+		if (playerInfo.six.value === 21) stay();
+		else {
+			playerInfo.six.total -= playerInfo.six.bet;
+			playerCards.playerSix[3].style.visibility = 'visible';
+			playerInfo.six.card = shuffledDeck.shift();
+			playerCards.playerSix[3].style.backgroundImage =
+				`url(../img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
+			playerInfo.six.value += playerInfo.six.card.value;
+			playerInfo.six.hand += 1;
+			playerInfo.six.bet *= 2;
+			stay();
+		}
+	}
+	else if (turn === 7 && players.includes('6') === true && playerInfo.seven
+		.hand === 2) {
+		if (playerInfo.four.value === 21) stay();
+		else {
+			playerInfo.seven.total -= playerInfo.seven.bet;
+			playerCards.playerSeven[3].style.visibility = 'visible';
+			playerInfo.seven.card = shuffledDeck.shift();
+			playerCards.playerSeven[3].style.backgroundImage =
+				`url(../img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
+			playerInfo.seven.value += playerInfo.seven.card.value;
+			playerInfo.seven.hand += 1;
+			playerInfo.seven.bet *= 2;
+			stay();
+		}
+	}
+	else return;
 }
 
 // Allow user to split inital hand if they are the same value
@@ -508,13 +679,13 @@ function split() {
 
 // Gives the player insurance
 function ins() {
-	if (turn === 0);
-	else if (turn === 1);
+	if (turn === 1);
 	else if (turn === 2);
 	else if (turn === 3);
 	else if (turn === 4);
 	else if (turn === 5);
 	else if (turn === 6);
+	else if (turn === 7);
 }
 
 // Checks if the player busted
@@ -522,12 +693,33 @@ function bust(value) {
 	if (value >= 21) {
 		turn += 1;
 		card = 2;
+		turnUpdater();
 	}
+}
+
+// Checks if it should be the dealers turn
+function dealerBtn(e) {
+	if (turn === 2 && players.length === 1) dealerPlay();
+	else if (turn === 3 && players.length === 2) dealerPlay();
+	else if (turn === 4 && players.length === 3) dealerPlay();
+	else if (turn === 5 && players.length === 4) dealerPlay();
+	else if (turn === 6 && players.length === 5) dealerPlay();
+	else if (turn === 7 && players.length === 6) dealerPlay();
+	else if (turn === 8 && players.length === 7) dealerPlay();
+	else return;
+}
+
+function turnUpdater() {
+	if (turn <= players.length) textEls.playerTurnText.innerText = turn;
+	else if (turn > players.length) textEls.turnText.style.visibility =
+		'hidden';
+	else return;
 }
 
 // Plays out the dealers hand
 function dealerPlay() {
 	playerCards.playerDealerHider.style.visibility = 'hidden';
+	//textEls.turnText.style.visibility = 'hidden';
 	
 	while (playerInfo.dealer.value < 17) {
 		playerCards.playerDealer[card].style.visibility = 'visible';
@@ -535,7 +727,6 @@ function dealerPlay() {
 		playerCards.playerDealer[card].style.backgroundImage =
 			`url(../img/cards/${playerInfo.dealer.card.suit}/${playerInfo.dealer.card.face}.svg)`;
 		playerInfo.dealer.value += playerInfo.dealer.card.value;
-		bust(playerInfo.dealer.value);
 		playerInfo.dealer.hand += 1;
 		card += 1;
 	}
@@ -567,48 +758,54 @@ function payOutCaller() {
 	playerInfo.four.total = playerInfo.four.total + playerInfo.four.lastBet;
 	playerInfo.five.total = playerInfo.five.total + playerInfo.five.lastBet;
 	playerInfo.six.total = playerInfo.six.total + playerInfo.six.lastBet;
-    playerInfo.seven.total = playerInfo.seven.total + playerInfo.seven.lastBet;
-    
-    displayUpdate();
+	playerInfo.seven.total = playerInfo.seven.total + playerInfo.seven.lastBet;
+	
+	displayUpdate();
 }
 
 // Calculates player payouts
 function payOuts(bet, value, hand) {
 	insBet = bet / 2;
 	
-	if (insurance === true && dealerValue === 21 && dealerHand === 2) insPay =
+	if (insurance === true && playerInfo.dealer.value === 21 && dealerHand ===
+		2) insPay =
 		insBet + insBet;
 	else insPay = 0;
 	
 	if (value === 21 && hand === 2) {
-        pay = (bet + (bet * 1.5)) + insPay;
-        return pay;
+		pay = (bet + (bet * 1.5)) + insPay;
+		return pay;
+	}
+	else if (playerInfo.dealer.value > 21 && value < 22) {
+		pay = (bet + bet);
+		return pay;
 	}
 	else if (value > playerInfo.dealer.value && value < 22) {
-        pay = (bet + bet) + insPay;
-        return pay;
+		pay = (bet + bet) + insPay;
+		return pay;
 	}
-	else if (value === playerInfo.dealer.value) return bet;
+	else if (value === playerInfo.dealer.value && value < 22) return bet;
 	else return 0;
+	console.log(pay)
 }
 
 // Updates the post round info
 function displayUpdate() {
-    numTotal.oneTotal.innerText = playerInfo.one.total;
-    numTotal.twoTotal.innerText = playerInfo.two.total;
-    numTotal.threeTotal.innerText = playerInfo.three.total;
-    numTotal.fourTotal.innerText = playerInfo.four.total;
-    numTotal.fiveTotal.innerText = playerInfo.five.total;
-    numTotal.sixTotal.innerText = playerInfo.six.total;
-    numTotal.sevenTotal.innerText = playerInfo.seven.total;
-
-    numResults.oneResult.innerText = playerInfo.one.lastBet;
-    numResults.twoResult.innerText = playerInfo.two.lastBet;
-    numResults.threeResult.innerText = playerInfo.three.lastBet;
-    numResults.fourResult.innerText = playerInfo.four.lastBet;
-    numResults.fiveResult.innerText = playerInfo.five.lastBet;
-    numResults.sixResult.innerText = playerInfo.six.lastBet;
-    numResults.sevenResult.innerText = playerInfo.seven.lastBet;
+	numTotal.oneTotal.innerText = playerInfo.one.total;
+	numTotal.twoTotal.innerText = playerInfo.two.total;
+	numTotal.threeTotal.innerText = playerInfo.three.total;
+	numTotal.fourTotal.innerText = playerInfo.four.total;
+	numTotal.fiveTotal.innerText = playerInfo.five.total;
+	numTotal.sixTotal.innerText = playerInfo.six.total;
+	numTotal.sevenTotal.innerText = playerInfo.seven.total;
+	
+	numResults.oneResult.innerText = playerInfo.one.lastBet;
+	numResults.twoResult.innerText = playerInfo.two.lastBet;
+	numResults.threeResult.innerText = playerInfo.three.lastBet;
+	numResults.fourResult.innerText = playerInfo.four.lastBet;
+	numResults.fiveResult.innerText = playerInfo.five.lastBet;
+	numResults.sixResult.innerText = playerInfo.six.lastBet;
+	numResults.sevenResult.innerText = playerInfo.seven.lastBet;
 }
 
 

@@ -47,9 +47,16 @@
 	border-radius: 10%;
 }
 
+#dealer {
+	bottom: 2%;
+	left: 10%;
+	border-radius: 10%;
+}
+
 .join-buttons,
 #start,
-#reset {
+#reset,
+#dealer {
 	position: absolute;
 	justify-content: center;
 	background-color: #04773C;

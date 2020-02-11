@@ -28,5 +28,6 @@ JavaScript
 ![All Board Entities](img/board-entities.png)
 
 ## Future Enhancments
-- Let player split, double down, etc.
+- Let player split
 - Tip the dealer
+- Dynamic card scrolling

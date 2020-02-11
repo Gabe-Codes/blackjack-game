@@ -39,7 +39,7 @@ section {
 	width: 100%;
 }
 
-.player-turn-display,
+#player-turn-display,
 #player-turn {
 	background-color: #04773C;
 	color: #CFA646;
