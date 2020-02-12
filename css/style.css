@@ -82,3 +82,24 @@ h1 {
 .results-hide {
 	display: none;
 }
+
+.rules {
+	position: absolute;
+	top: 10%;
+	left: 29.3%;
+	padding: 15px;
+	background-color:#04773C;
+	color: #024B20;
+	border: 5px solid #CFA646;
+	border-radius: 30px;
+}
+
+h2 {
+	padding-bottom: 10px;
+}
+
+h2,
+ul,
+li {
+	background-color: #04773C;
+}

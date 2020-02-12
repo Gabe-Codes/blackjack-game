@@ -81,8 +81,8 @@ const playerInfo = {
 }
 
 /*----- app's state (variables) -----*/
-let masterDeck, shuffledDeck, hand, pay, dealerHand, bet, insPay, insBet, players, suit, face, turn,
-	turnDisplay, currentPlayer, numPlayers;
+let masterDeck, shuffledDeck, pay, insPay, insBet, players, suit, face, turn, turnDisplay,
+	currentPlayer, numPlayers, card, allowJoin;
 
 /*----- cached element references -----*/
 const textEls = {
@@ -143,13 +143,13 @@ document.getElementById('start')
 	.addEventListener('click', startRound)
 document.getElementById('reset')
 	.addEventListener('click', init)
-document.getElementById('dealer')
-	.addEventListener('click', dealerPlay)
+
 /*----- functions -----*/
 init()
 
 function init() {
-	bet = 5;
+	// Allows players to join at the start of the game
+	allowJoin = true;
 	
 	// Resets game board and score
 	renderReset();
@@ -252,7 +252,7 @@ function postRoundClean() {
 	textEls.turnText.style.visibility = 'hidden';
 	finishedPlayers = [];
 	numPlayers = [];
-
+	
 	playerInfo.one.hand = 2;
 	playerInfo.two.hand = 2;
 	playerInfo.three.hand = 2;
@@ -282,37 +282,39 @@ function postRoundClean() {
 function joinLeave(e) {
 	let playerIdx = e.target.dataset.join;
 	
-	if (e.target.tagName !== 'BUTTON') return;
-	else if (buttonEls.joinBtns[playerIdx].innerText === 'BUY IN') {
-		buttonEls.joinBtns[playerIdx].innerText = `PLAYER ${parseInt(playerIdx) + 1}`;
-		players.push(playerIdx);
-		if (playerIdx < 6) buttonEls.joinBtns[parseInt(playerIdx) + 1].style
-			.display = 'block';
-		Array.from(textEls.totalsText)
-			.forEach(function(elem) {
-				if (elem.dataset.totals == playerIdx) elem.style
-					.display = 'block';
-			})
-		Array.from(textEls.resultsText)
-			.forEach(function(elem) {
-				if (elem.dataset.results == playerIdx) elem.style
-					.display = 'block';
-			})
+	if (allowJoin === true) {
+		if (e.target.tagName !== 'BUTTON') return;
+		else if (buttonEls.joinBtns[playerIdx].innerText === 'BUY IN') {
+			buttonEls.joinBtns[playerIdx].innerText = `LEAVE TABLE`;
+			players.push(playerIdx);
+			if (playerIdx < 6) buttonEls.joinBtns[parseInt(playerIdx) + 1].style
+				.display = 'block';
+			Array.from(textEls.totalsText)
+				.forEach(function(elem) {
+					if (elem.dataset.totals == playerIdx) elem.style
+						.display = 'block';
+				})
+			Array.from(textEls.resultsText)
+				.forEach(function(elem) {
+					if (elem.dataset.results == playerIdx) elem.style
+						.display = 'block';
+				})
+		}
+		else {
+			buttonEls.joinBtns[playerIdx].innerText = 'BUY IN';
+			players.splice(players.indexOf(playerIdx), 1);
+			Array.from(textEls.totalsText)
+				.forEach(function(elem) {
+					if (elem.dataset.totals == playerIdx) elem.style.display =
+						'none';
+				})
+			Array.from(textEls.resultsText)
+				.forEach(function(elem) {
+					if (elem.dataset.results == playerIdx) elem.style.display =
+						'none';
+				})
+		}
 	}
-	// else {
-	// 	buttonEls.joinBtns[playerIdx].innerText = 'BUY IN';
-	// 	players.splice(players.indexOf(playerIdx), 1);
-	// 	Array.from(textEls.totalsText)
-	// 		.forEach(function(elem) {
-	// 			if (elem.dataset.totals == playerIdx) elem.style.display =
-	// 				'none';
-	// 		})
-	// 	Array.from(textEls.resultsText)
-	// 		.forEach(function(elem) {
-	// 			if (elem.dataset.results == playerIdx) elem.style.display =
-	// 				'none';
-	// 		})
-	// }
 }
 
 // Starts the next round
@@ -321,9 +323,7 @@ function startRound(e) {
 		return;
 	else {
 		postRoundClean();
-		numPlayers = players.slice(0);
 		playerBets();
-		playerChecker();
 		initialHand();
 	}
 	
@@ -362,6 +362,7 @@ function playerBets() {
 
 // Deals every joined players and the dealers intial hand
 function initialHand() {
+	allowJoin = false;
 	turn = 1;
 	card = 2;
 	players.sort();
@@ -376,7 +377,7 @@ function initialHand() {
 			`url(../img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
 		playerCards.playerOne[1].style.visibility = 'visible';
 		playerInfo.one.card = shuffledDeck.shift();
-		playerInfo.one.value += playerInfo.one.card.value;
+		playerInfo.one.value = doubleAces(playerInfo.one.value, playerInfo.one.card.value);
 		playerCards.playerOne[1].style.backgroundImage =
 			`url(../img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
 		if (playerInfo.one.value === 21) playerInfo.one.blackjack = true;
@@ -389,7 +390,7 @@ function initialHand() {
 			`url(../img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
 		playerCards.playerTwo[1].style.visibility = 'visible';
 		playerInfo.two.card = shuffledDeck.shift();
-		playerInfo.two.value += playerInfo.two.card.value;
+		playerInfo.two.value = doubleAces(playerInfo.two.value, playerInfo.two.card.value);
 		playerCards.playerTwo[1].style.backgroundImage =
 			`url(../img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
 		if (playerInfo.two.value === 21) playerInfo.two.blackjack = true;
@@ -402,7 +403,7 @@ function initialHand() {
 			`url(../img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
 		playerCards.playerThree[1].style.visibility = 'visible';
 		playerInfo.three.card = shuffledDeck.shift();
-		playerInfo.three.value += playerInfo.three.card.value;
+		playerInfo.three.value = doubleAces(playerInfo.three.value, playerInfo.three.card.value);
 		playerCards.playerThree[1].style.backgroundImage =
 			`url(../img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
 		if (playerInfo.three.value === 21) playerInfo.three.blackjack = true;
@@ -415,7 +416,7 @@ function initialHand() {
 			`url(../img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
 		playerCards.playerFour[1].style.visibility = 'visible';
 		playerInfo.four.card = shuffledDeck.shift();
-		playerInfo.four.value += playerInfo.four.card.value;
+		playerInfo.four.value = doubleAces(playerInfo.four.value, playerInfo.four.card.value);
 		playerCards.playerFour[1].style.backgroundImage =
 			`url(../img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
 		if (playerInfo.four.value === 21) playerInfo.four.blackjack = true;
@@ -428,7 +429,7 @@ function initialHand() {
 			`url(../img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
 		playerCards.playerFive[1].style.visibility = 'visible';
 		playerInfo.five.card = shuffledDeck.shift();
-		playerInfo.five.value += playerInfo.five.card.value;
+		playerInfo.five.value = doubleAces(playerInfo.five.value, playerInfo.five.card.value);
 		playerCards.playerFive[1].style.backgroundImage =
 			`url(../img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
 		if (playerInfo.five.value === 21) playerInfo.five.blackjack = true;
@@ -441,7 +442,7 @@ function initialHand() {
 			`url(../img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
 		playerCards.playerSix[1].style.visibility = 'visible';
 		playerInfo.six.card = shuffledDeck.shift();
-		playerInfo.six.value += playerInfo.six.card.value;
+		playerInfo.six.value = doubleAces(playerInfo.six.value, playerInfo.six.card.value);
 		playerCards.playerSix[1].style.backgroundImage =
 			`url(../img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
 		if (playerInfo.six.value === 21) playerInfo.six.blackjack = true;
@@ -454,7 +455,7 @@ function initialHand() {
 			`url(../img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
 		playerCards.playerSeven[1].style.visibility = 'visible';
 		playerInfo.seven.card = shuffledDeck.shift();
-		playerInfo.seven.value += playerInfo.seven.card.value;
+		playerInfo.seven.value = doubleAces(playerInfo.seven.value, playerInfo.seven.card.value);
 		playerCards.playerSeven[1].style.backgroundImage =
 			`url(../img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
 		if (playerInfo.seven.value === 21) playerInfo.seven.blackjack = true;
@@ -471,22 +472,26 @@ function initialHand() {
 	playerInfo.dealer.value += playerInfo.dealer.card.value;
 	playerCards.playerDealer[1].style.backgroundImage =
 		`url(../img/cards/${playerInfo.dealer.card.suit}/${playerInfo.dealer.card.face}.svg)`;
+	
+	blackjackCheck();
+	numPlayers = players.slice(0);
 }
 
 // Listens for the players choice
 function choices(e) {
 	let pressed = e.target.innerText;
-	
-	if (e.target.tagName !== 'BUTTON') return;
-	else if (pressed === 'HIT') hit();
-	else if (pressed === 'STAY') stay();
-	else if (pressed === 'DOUBLE DOWN') doubleDown();
-	else if (pressed === 'INS') {
-		if (playerInfo.dealer.card.rank === 'A') ins();
-		else return;
-	}
-	else {
-		if (playerInfo.one.card[0] === playerInfo.one.card[1]) split();
+	if (turn !== 100) {
+		if (e.target.tagName !== 'BUTTON') return;
+		else if (pressed === 'HIT') hit();
+		else if (pressed === 'STAY') stay();
+		else if (pressed === 'DOUBLE DOWN') doubleDown();
+		else if (pressed === 'INS') {
+			if (playerInfo.dealer.card.rank === 'A') ins();
+			else return;
+		}
+		else {
+			if (playerInfo.one.card[0] === playerInfo.one.card[1]) split();
+		}
 	}
 }
 
@@ -497,60 +502,66 @@ function hit() {
 		playerInfo.one.card = shuffledDeck.shift();
 		playerCards.playerOne[card].style.backgroundImage =
 			`url(../img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
-		playerInfo.one.value += playerInfo.one.card.value;
-		bust(playerInfo.one.value);
+		playerInfo.one.value = cardCalc(playerInfo.one.value, playerInfo.one.card.rank, playerInfo
+			.one.card.value);
 		playerInfo.one.hand += 1;
 		card += 1;
+		bust(playerInfo.one.value);
 	}
 	else if (players.includes('1') === true) {
 		playerCards.playerTwo[card].style.visibility = 'visible';
 		playerInfo.two.card = shuffledDeck.shift();
 		playerCards.playerTwo[card].style.backgroundImage =
 			`url(../img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
-		playerInfo.two.value += playerInfo.two.card.value;
-		bust(playerInfo.two.value);
+		playerInfo.two.value = cardCalc(playerInfo.two.value, playerInfo.two.card.rank, playerInfo
+			.two.card.value);
 		playerInfo.two.hand += 1;
 		card += 1;
+		bust(playerInfo.two.value);
 	}
 	else if (players.includes('2') === true) {
 		playerCards.playerThree[card].style.visibility = 'visible';
 		playerInfo.three.card = shuffledDeck.shift();
 		playerCards.playerThree[card].style.backgroundImage =
 			`url(../img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
-		playerInfo.three.value += playerInfo.three.card.value;
-		bust(playerInfo.three.value);
+		playerInfo.three.value = cardCalc(playerInfo.three.value, playerInfo.three.card.rank,
+			playerInfo.three.card.value);
 		playerInfo.three.hand += 1;
 		card += 1;
+		bust(playerInfo.three.value);
 	}
 	else if (players.includes('3') === true) {
 		playerCards.playerFour[card].style.visibility = 'visible';
 		playerInfo.four.card = shuffledDeck.shift();
 		playerCards.playerFour[card].style.backgroundImage =
 			`url(../img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
-		playerInfo.four.value += playerInfo.four.card.value;
-		bust(playerInfo.four.value);
+		playerInfo.four.value = cardCalc(playerInfo.four.value, playerInfo.four.card.rank,
+			playerInfo.four.card.value);
 		playerInfo.four.hand += 1;
 		card += 1;
+		bust(playerInfo.four.value);
 	}
 	else if (players.includes('4') === true) {
 		playerCards.playerFive[card].style.visibility = 'visible';
 		playerInfo.five.card = shuffledDeck.shift();
 		playerCards.playerFive[card].style.backgroundImage =
 			`url(../img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
-		playerInfo.five.value += playerInfo.five.card.value;
-		bust(playerInfo.five.value);
+		playerInfo.five.value = cardCalc(playerInfo.five.value, playerInfo.five.card.rank,
+			playerInfo.five.card.value);
 		playerInfo.five.hand += 1;
 		card += 1;
+		bust(playerInfo.five.value);
 	}
 	else if (players.includes('5') === true) {
 		playerCards.playerSix[card].style.visibility = 'visible';
 		playerInfo.six.card = shuffledDeck.shift();
 		playerCards.playerSix[card].style.backgroundImage =
 			`url(../img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
-		playerInfo.six.value += playerInfo.six.card.value;
-		bust(playerInfo.six.value);
+		playerInfo.six.value = cardCalc(playerInfo.six.value, playerInfo.six.card.rank, playerInfo
+			.six.card.value);
 		playerInfo.six.hand += 1;
 		card += 1;
+		bust(playerInfo.six.value);
 		
 	}
 	else if (players.includes('6') === true) {
@@ -558,10 +569,11 @@ function hit() {
 		playerInfo.seven.card = shuffledDeck.shift();
 		playerCards.playerSeven[card].style.backgroundImage =
 			`url(../img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
-		playerInfo.seven.value += playerInfo.seven.card.value;
-		bust(playerInfo.seven.value);
+		playerInfo.seven.value = cardCalc(playerInfo.seven.value, playerInfo.seven.card.rank,
+			playerInfo.seven.card.value);
 		playerInfo.seven.hand += 1;
 		card += 1;
+		bust(playerInfo.seven.value);
 	}
 	else return;
 }
@@ -570,89 +582,98 @@ function hit() {
 function stay() {
 	if (turn <= numPlayers.length) {
 		turn += 1;
-		turnDisplay += 1;
 		card = 2;
 		nextPlayer();
 	}
-	turnUpdater();
 }
 
 
 // Lets the player double down after the inital hand
 function doubleDown() {
-	if (players.includes('0') === true && playerInfo.one.hand === 2) {
+	if (players.includes('0') === true && playerInfo.one.hand === 2 && turnDisplay === 1) {
 		playerInfo.one.total -= playerInfo.one.bet;
-		playerCards.playerOne[3].style.visibility = 'visible';
+		playerCards.playerOne[2].style.visibility = 'visible';
 		playerInfo.one.card = shuffledDeck.shift();
-		playerCards.playerOne[3].style.backgroundImage =
+		playerCards.playerOne[2].style.backgroundImage =
 			`url(../img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
-		playerInfo.one.value += playerInfo.one.card.value;
+		playerInfo.one.value = cardCalc(playerInfo.one.value, playerInfo.one.card.rank, playerInfo
+			.one.card.value);
 		playerInfo.one.hand += 1;
 		playerInfo.one.bet *= 2;
 		stay();
 	}
-	else if (players.includes('1') === true && playerInfo.two.hand === 2) {
+	else if (players.includes('1') === true && playerInfo.two.hand === 2 && turnDisplay === 2) {
 		playerInfo.two.total -= playerInfo.two.bet;
-		playerCards.playerTwo[3].style.visibility = 'visible';
+		playerCards.playerTwo[2].style.visibility = 'visible';
 		playerInfo.two.card = shuffledDeck.shift();
-		playerCards.playerTwo[3].style.backgroundImage =
+		playerCards.playerTwo[2].style.backgroundImage =
 			`url(../img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
-		playerInfo.two.value += playerInfo.two.card.value;
+		playerInfo.two.value = cardCalc(playerInfo.two.value, playerInfo.two.card.rank, playerInfo
+			.two.card.value);
 		playerInfo.two.hand += 1;
 		playerInfo.two.bet *= 2;
 		stay();
 	}
-	else if (players.includes('2') === true && playerInfo.three.hand === 2) {
+	else if (players.includes('2') === true && playerInfo.three.hand === 2 && turnDisplay === 3) {
 		playerInfo.three.total -= playerInfo.three.bet;
-		playerCards.playerThree[3].style.visibility = 'visible';
+		playerCards.playerThree[2].style.visibility = 'visible';
 		playerInfo.three.card = shuffledDeck.shift();
-		playerCards.playerThree[3].style.backgroundImage =
+		playerCards.playerThree[2].style.backgroundImage =
 			`url(../img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
-		playerInfo.three.value += playerInfo.three.card.value;
+		playerInfo.three.value = cardCalc(playerInfo.three.value, playerInfo.three.card.rank,
+			playerInfo
+			.three.card.value);
 		playerInfo.three.hand += 1;
 		playerInfo.three.bet *= 2;
 		stay();
 	}
-	else if (players.includes('3') === true && playerInfo.four.hand === 2) {
+	else if (players.includes('3') === true && playerInfo.four.hand === 2 && turnDisplay === 4) {
 		playerInfo.four.total -= playerInfo.four.bet;
-		playerCards.playerFour[3].style.visibility = 'visible';
+		playerCards.playerFour[2].style.visibility = 'visible';
 		playerInfo.four.card = shuffledDeck.shift();
-		playerCards.playerFour[3].style.backgroundImage =
+		playerCards.playerFour[2].style.backgroundImage =
 			`url(../img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
-		playerInfo.four.value += playerInfo.four.card.value;
+		playerInfo.four.value = cardCalc(playerInfo.four.value, playerInfo.four.card.rank,
+			playerInfo
+			.four.card.value);
 		playerInfo.four.hand += 1;
 		playerInfo.four.bet *= 2;
 		stay();
 	}
-	else if (players.includes('4') === true && playerInfo.five.hand === 2) {
+	else if (players.includes('4') === true && playerInfo.five.hand === 2 && turnDisplay === 5) {
 		playerInfo.five.total -= playerInfo.five.bet;
-		playerCards.playerFive[3].style.visibility = 'visible';
+		playerCards.playerFive[2].style.visibility = 'visible';
 		playerInfo.five.card = shuffledDeck.shift();
-		playerCards.playerFive[3].style.backgroundImage =
+		playerCards.playerFive[2].style.backgroundImage =
 			`url(../img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
-		playerInfo.five.value += playerInfo.five.card.value;
+		playerInfo.five.value = cardCalc(playerInfo.five.value, playerInfo.five.card.rank,
+			playerInfo
+			.five.card.value);
 		playerInfo.five.hand += 1;
 		playerInfo.five.bet *= 2;
 		stay();
 	}
-	else if (players.includes('5') === true && playerInfo.six.hand === 2) {
+	else if (players.includes('5') === true && playerInfo.six.hand === 2 && turnDisplay === 6) {
 		playerInfo.six.total -= playerInfo.six.bet;
-		playerCards.playerSix[3].style.visibility = 'visible';
+		playerCards.playerSix[2].style.visibility = 'visible';
 		playerInfo.six.card = shuffledDeck.shift();
-		playerCards.playerSix[3].style.backgroundImage =
+		playerCards.playerSix[2].style.backgroundImage =
 			`url(../img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
-		playerInfo.six.value += playerInfo.six.card.value;
+		playerInfo.six.value = cardCalc(playerInfo.six.value, playerInfo.six.card.rank, playerInfo
+			.six.card.value);
 		playerInfo.six.hand += 1;
 		playerInfo.six.bet *= 2;
 		stay();
 	}
-	else if (players.includes('6') === true && playerInfo.seven.hand === 2) {
+	else if (players.includes('6') === true && playerInfo.seven.hand === 2 && turnDisplay === 7) {
 		playerInfo.seven.total -= playerInfo.seven.bet;
-		playerCards.playerSeven[3].style.visibility = 'visible';
+		playerCards.playerSeven[2].style.visibility = 'visible';
 		playerInfo.seven.card = shuffledDeck.shift();
-		playerCards.playerSeven[3].style.backgroundImage =
+		playerCards.playerSeven[2].style.backgroundImage =
 			`url(../img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
-		playerInfo.seven.value += playerInfo.seven.card.value;
+		playerInfo.seven.value = cardCalc(playerInfo.seven.value, playerInfo.seven.card.rank,
+			playerInfo
+			.seven.card.value);
 		playerInfo.seven.hand += 1;
 		playerInfo.seven.bet *= 2;
 		stay();
@@ -707,7 +728,22 @@ function bust(value) {
 
 // Skips the users turn if they have blackjack
 function blackjackCheck() {
-	if (turn === 1 && players.includes('0') === true);
+	if (players.includes('0') === true && playerInfo.one.blackjack === true) finishedPlayers.push(
+		players.splice(players.indexOf('0'), 1));
+	if (players.includes('1') === true && playerInfo.two.blackjack === true) finishedPlayers.push(
+		players.splice(players.indexOf('1'), 1));
+	if (players.includes('2') === true && playerInfo.three.blackjack === true) finishedPlayers.push(
+		players.splice(players.indexOf('2'), 1));
+	if (players.includes('3') === true && playerInfo.four.blackjack === true) finishedPlayers.push(
+		players.splice(players.indexOf('3'), 1));
+	if (players.includes('4') === true && playerInfo.five.blackjack === true) finishedPlayers.push(
+		players.splice(players.indexOf('4'), 1));
+	if (players.includes('5') === true && playerInfo.six.blackjack === true) finishedPlayers.push(
+		players.splice(players.indexOf('5'), 1));
+	if (players.includes('6') === true && playerInfo.seven.blackjack === true) finishedPlayers.push(
+		players.splice(players.indexOf('6'), 1));
+	
+	finishedPlayers = [].concat.apply([], finishedPlayers);
 }
 
 // Checks who the first player should be (if players have left between rounds)
@@ -715,12 +751,12 @@ function playerChecker() {
 	if (players.includes('0') === true && playerInfo.one.blackjack === false) turnDisplay = 1;
 	else if (players.includes('1') === true && playerInfo.two.blackjack === false) turnDisplay = 2;
 	else if (players.includes('2') === true && playerInfo.three.blackjack === false) turnDisplay =
-	3;
+		3;
 	else if (players.includes('3') === true && playerInfo.four.blackjack === false) turnDisplay = 4;
 	else if (players.includes('4') === true && playerInfo.five.blackjack === false) turnDisplay = 5;
 	else if (players.includes('5') === true && playerInfo.six.blackjack === false) turnDisplay = 6;
 	else if (players.includes('6') === true && playerInfo.seven.blackjack === false) turnDisplay =
-	7;
+		7;
 }
 
 // Changes player turns
@@ -737,34 +773,35 @@ function turnUpdater() {
 }
 
 // Plays out the dealers hand
-function dealerPlay(e) {
-	if (turn > numPlayers.length) {
-		playerCards.playerDealerHider.style.visibility = 'hidden';
-		
-		while (playerInfo.dealer.value < 17) {
-			playerCards.playerDealer[card].style.visibility = 'visible';
-			playerInfo.dealer.card = shuffledDeck.shift();
-			playerCards.playerDealer[card].style.backgroundImage =
-				`url(../img/cards/${playerInfo.dealer.card.suit}/${playerInfo.dealer.card.face}.svg)`;
-			playerInfo.dealer.value += playerInfo.dealer.card.value;
-			playerInfo.dealer.hand += 1;
-			card += 1;
-		}
-		
-		turn = 100;
-		payOutCaller();
+function dealerPlay() {
+	playerCards.playerDealerHider.style.visibility = 'hidden';
+	
+	while (playerInfo.dealer.value < 17) {
+		playerCards.playerDealer[card].style.visibility = 'visible';
+		playerInfo.dealer.card = shuffledDeck.shift();
+		playerCards.playerDealer[card].style.backgroundImage =
+			`url(../img/cards/${playerInfo.dealer.card.suit}/${playerInfo.dealer.card.face}.svg)`;
+		playerInfo.dealer.value = cardCalc(playerInfo.dealer.value, playerInfo.dealer.card.rank, playerInfo
+			.dealer.card.value);
+		playerInfo.dealer.hand += 1;
+		card += 1;
 	}
-	else return;
+	
+	allowJoin = true;
+	turn = 100;
+	payOutCaller();
 }
 
 // Sends the payout function the players info and sets the players new total
 function payOutCaller() {
 	if (finishedPlayers.includes('o') === true) {
-		playerInfo.one.lastBet = payOuts(playerInfo.one.bet, playerInfo.one.value, playerInfo.one.hand,
+		playerInfo.one.lastBet = payOuts(playerInfo.one.bet, playerInfo.one.value, playerInfo.one
+			.hand,
 			playerInfo.one.insurance);
 	}
 	if (finishedPlayers.includes('1') === true) {
-		playerInfo.two.lastBet = payOuts(playerInfo.two.bet, playerInfo.two.value, playerInfo.two.hand,
+		playerInfo.two.lastBet = payOuts(playerInfo.two.bet, playerInfo.two.value, playerInfo.two
+			.hand,
 			playerInfo.two.insurance);
 	}
 	if (finishedPlayers.includes('2') === true) {
@@ -772,22 +809,25 @@ function payOutCaller() {
 			.three.hand, playerInfo.three.insurance);
 	}
 	if (finishedPlayers.includes('3') === true) {
-		playerInfo.four.lastBet = payOuts(playerInfo.four.bet, playerInfo.four.value, playerInfo.four
+		playerInfo.four.lastBet = payOuts(playerInfo.four.bet, playerInfo.four.value, playerInfo
+			.four
 			.hand, playerInfo.four.insurance);
 	}
 	if (finishedPlayers.includes('4') === true) {
-		playerInfo.five.lastBet = payOuts(playerInfo.five.bet, playerInfo.five.value, playerInfo.five
+		playerInfo.five.lastBet = payOuts(playerInfo.five.bet, playerInfo.five.value, playerInfo
+			.five
 			.hand, playerInfo.five.insurance);
 	}
 	if (finishedPlayers.includes('5') === true) {
-		playerInfo.six.lastBet = payOuts(playerInfo.six.bet, playerInfo.six.value, playerInfo.six.hand,
+		playerInfo.six.lastBet = payOuts(playerInfo.six.bet, playerInfo.six.value, playerInfo.six
+			.hand,
 			playerInfo.six.insurance);
 	}
 	if (finishedPlayers.includes('6') === true) {
 		playerInfo.seven.lastBet = payOuts(playerInfo.seven.bet, playerInfo.seven.value, playerInfo
 			.seven.hand, playerInfo.seven.insurance);
 	}
-
+	
 	playerInfo.one.total = playerInfo.one.total + playerInfo.one.lastBet;
 	playerInfo.two.total = playerInfo.two.total + playerInfo.two.lastBet;
 	playerInfo.three.total = playerInfo.three.total + playerInfo.three.lastBet;
@@ -797,6 +837,19 @@ function payOutCaller() {
 	playerInfo.seven.total = playerInfo.seven.total + playerInfo.seven.lastBet;
 	
 	displayUpdate();
+}
+
+// If the opening hand is pair aces change value so player doesnt auto lose 
+function doubleAces(value, cardValue) {
+	if (value === 11 && cardValue === 11) return value = 12;
+	else return value += cardValue;
+}
+
+// Calculates whether or not the hand can handle an ace as an 11
+function cardCalc(value, rank, cardValue) {
+	if (rank === 'A' && value + 11 > 21) return value += 1;
+	else if (rank === 'A' && value + 11 < 21) return value += 11;
+	else return value += cardValue;
 }
 
 // Calculates player payouts
@@ -850,6 +903,14 @@ function displayUpdate() {
 		players = [].concat.apply([], players);
 	})
 }
+
+let constantScan = setInterval(function() {
+	if (turn > numPlayers.length && turn !== 100) {
+		dealerPlay();
+	}
+	turnUpdater();
+	playerChecker();
+}, 10);
 
 
 
