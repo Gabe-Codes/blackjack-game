@@ -89,7 +89,9 @@ const textEls = {
 	totalsText: document.querySelectorAll('[data-totals]'),
 	resultsText: document.querySelectorAll('[data-results]'),
 	turnText: document.getElementById('player-turn-display'),
-	playerTurnText: document.getElementById('player-turn')
+	playerTurnText: document.getElementById('player-turn'),
+	rules: document.getElementById('rules'),
+	cheat: document.getElementById('cheat-container')
 }
 const buttonEls = {
 	choiceBtns: document.getElementsByClassName('button-choices'),
@@ -143,10 +145,79 @@ document.getElementById('start')
 	.addEventListener('click', startRound)
 document.getElementById('reset')
 	.addEventListener('click', init)
+document.getElementById('start')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('start')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('reset')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('reset')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('hit')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('hit')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('stay')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('stay')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('double-down')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('double-down')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('split')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('split')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('ins')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('ins')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('buy-in')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('buy-in')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('buy-in-two')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('buy-in-two')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('buy-in-three')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('buy-in-three')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('buy-in-four')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('buy-in-four')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('buy-in-five')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('buy-in-five')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('buy-in-six')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('buy-in-six')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('buy-in-seven')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('buy-in-seven')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('rules-button')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('rules-button')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('rules-button')
+	.addEventListener('click', rulesToggle)
+document.getElementById('cheat-button')
+	.addEventListener('mouseover', buttonHover)
+document.getElementById('cheat-button')
+	.addEventListener('mouseout', buttonNormal)
+document.getElementById('cheat-button')
+	.addEventListener('click', cheatToggle)
 
 /*----- functions -----*/
 init()
 
+// Initializes the game
 function init() {
 	// Allows players to join at the start of the game
 	allowJoin = true;
@@ -243,6 +314,7 @@ function renderReset() {
 	turn = 100;
 }
 
+// Cleans parts of the board while keeping player progress
 function postRoundClean() {
 	Array.from(resetEls.cardsHide)
 		.forEach(function(elem) {
@@ -765,6 +837,7 @@ function nextPlayer() {
 	finishedPlayers = [].concat.apply([], finishedPlayers);
 }
 
+// Updates players turn or hides the text if it is nobodys turn
 function turnUpdater() {
 	if (turn <= numPlayers.length) textEls.playerTurnText.innerText = turnDisplay;
 	else if (turn > players.length) textEls.turnText.style.visibility =
@@ -781,7 +854,8 @@ function dealerPlay() {
 		playerInfo.dealer.card = shuffledDeck.shift();
 		playerCards.playerDealer[card].style.backgroundImage =
 			`url(../img/cards/${playerInfo.dealer.card.suit}/${playerInfo.dealer.card.face}.svg)`;
-		playerInfo.dealer.value = cardCalc(playerInfo.dealer.value, playerInfo.dealer.card.rank, playerInfo
+		playerInfo.dealer.value = cardCalc(playerInfo.dealer.value, playerInfo.dealer.card.rank,
+			playerInfo
 			.dealer.card.value);
 		playerInfo.dealer.hand += 1;
 		card += 1;
@@ -876,6 +950,7 @@ function payOuts(bet, value, hand, insurance) {
 	else return 0;
 }
 
+// Updates player totals
 function totalUpdater() {
 	numTotal.oneTotal.innerText = playerInfo.one.total;
 	numTotal.twoTotal.innerText = playerInfo.two.total;
@@ -904,6 +979,7 @@ function displayUpdate() {
 	})
 }
 
+// Constantly checks the games progress to make the game fluid
 let constantScan = setInterval(function() {
 	if (turn > numPlayers.length && turn !== 100) {
 		dealerPlay();
@@ -913,6 +989,25 @@ let constantScan = setInterval(function() {
 }, 10);
 
 
+function buttonHover(e) {
+	e.target.style.backgroundColor = '#024B20';
+}
+
+function buttonNormal(e) {
+	e.target.style.backgroundColor = '#04773C';
+}
+
+// Toggles rules list
+function rulesToggle(e) {
+	if (textEls.rules.style.display === 'none') textEls.rules.style.display = 'block';
+	else textEls.rules.style.display = 'none';
+}
+
+// Toggles cheat sheet
+function cheatToggle(e) {
+	if (textEls.cheat.style.display === 'none') textEls.cheat.style.display = 'block';
+	else textEls.cheat.style.display = 'none';
+}
 
 
 // create a card deck  that holds card knowledge

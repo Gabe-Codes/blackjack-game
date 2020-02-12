@@ -1,5 +1,6 @@
 .cards-hide {
 	visibility: hidden;
+
 	background-image: url(../img/cards/backs/blue.svg);
 }
 
@@ -35,11 +36,13 @@
 #card-dealer-sixteen,
 #card-dealer-seventeen,
 #card-dealer-hider {
+	position: absolute;
+
 	width: 72px;
 	height: 100px;
-	background-size: cover;
-	position: absolute;
+
 	border: 1px solid black;
+	background-size: cover;
 }
 
 #card-seven-three,
@@ -147,831 +150,970 @@
 #card-one-fifteen,
 #card-one-sixteen,
 #card-one-seventeen {
+	position: absolute;
+
 	width: 36px;
 	height: 50px;
-	background-size: cover;
-	position: absolute;
+
 	border: 1px solid black;
+	background-size: cover;
 }
 
 #card-seven {
-	transform: rotate(21deg);
 	top: 32.5%;
 	right: 79.5%;
+
+	transform: rotate(21deg);
 }
 
 #card-seven-two {
-	transform: rotate(21deg);
 	top: 36.5%;
 	right: 81.6%;
+
+	transform: rotate(21deg);
 }
 
 #card-seven-three {
-	transform: rotate(0deg);
 	bottom: 23%;
 	left: 1%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-four {
-	transform: rotate(0deg);
 	bottom: 23%;
 	left: 4%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-five {
-	transform: rotate(0deg);
 	bottom: 23%;
 	left: 7%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-six {
-	transform: rotate(0deg);
 	bottom: 23%;
 	left: 10%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-seven {
-	transform: rotate(0deg);
 	bottom: 19%;
 	left: 1%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-eight {
-	transform: rotate(0deg);
 	bottom: 19%;
 	left: 4%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-nine {
-	transform: rotate(0deg);
 	bottom: 19%;
 	left: 7%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-ten {
-	transform: rotate(0deg);
 	bottom: 19%;
 	left: 10%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-eleven {
-	transform: rotate(0deg);
 	bottom: 15%;
 	left: 1%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-twelve {
-	transform: rotate(0deg);
 	bottom: 15%;
 	left: 4%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-thirteen {
-	transform: rotate(0deg);
 	bottom: 15%;
 	left: 7%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-fourteen {
-	transform: rotate(0deg);
 	bottom: 15%;
 	left: 10%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-fifteen {
-	transform: rotate(0deg);
 	bottom: 11%;
 	left: 1%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-sixteen {
-	transform: rotate(0deg);
 	bottom: 11%;
 	left: 4%;
+
+	transform: rotate(0deg);
 }
 
 #card-seven-seventeen {
-	transform: rotate(0deg);
 	bottom: 11%;
 	left: 7%;
+
+	transform: rotate(0deg);
 }
 
 #card-six {
-	transform: rotate(15deg);
 	top: 38%;
 	right: 69%;
+
+	transform: rotate(15deg);
 }
 
 #card-six-two {
-	transform: rotate(15deg);
 	top: 42%;
 	right: 71%;
+
+	transform: rotate(15deg);
 }
 
 #card-six-three {
-	transform: rotate(0deg);
 	bottom: 17%;
 	left: 15%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-four {
-	transform: rotate(0deg);
 	bottom: 17%;
 	left: 18%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-five {
-	transform: rotate(0deg);
 	bottom: 17%;
 	left: 21%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-six {
-	transform: rotate(0deg);
 	bottom: 17%;
 	left: 24%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-seven {
-	transform: rotate(0deg);
 	bottom: 12%;
 	left: 15%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-eight {
-	transform: rotate(0deg);
 	bottom: 12%;
 	left: 18%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-nine {
-	transform: rotate(0deg);
 	bottom: 12%;
 	left: 21%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-ten {
-	transform: rotate(0deg);
 	bottom: 12%;
 	left: 24%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-eleven {
-	transform: rotate(0deg);
 	bottom: 8%;
 	left: 15%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-twelve {
-	transform: rotate(0deg);
 	bottom: 8%;
 	left: 18%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-thirteen {
-	transform: rotate(0deg);
 	bottom: 8%;
 	left: 21%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-fourteen {
-	transform: rotate(0deg);
 	bottom: 8%;
 	left: 24%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-fifteen {
-	transform: rotate(0deg);
 	bottom: 4%;
 	left: 15%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-sixteen {
-	transform: rotate(0deg);
 	bottom: 4%;
 	left: 18%;
+
+	transform: rotate(0deg);
 }
 
 #card-six-seventeen {
-	transform: rotate(0deg);
 	bottom: 4%;
 	left: 21%;
+
+	transform: rotate(0deg);
 }
 
 #card-five {
-	transform: rotate(7deg);
 	top: 41.5%;
 	right: 57.5%;
+
+	transform: rotate(7deg);
 }
 
 #card-five-two {
-	transform: rotate(7deg);
 	top: 45.5%;
 	right: 59%;
+
+	transform: rotate(7deg);
 }
 
 #card-five-three {
-	transform: rotate(0deg);
 	bottom: 13%;
 	left: 29%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-four {
-	transform: rotate(0deg);
 	bottom: 13%;
 	left: 32%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-five {
-	transform: rotate(0deg);
 	bottom: 13%;
 	left: 35%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-six {
-	transform: rotate(0deg);
 	bottom: 13%;
 	left: 38%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-seven {
-	transform: rotate(0deg);
 	bottom: 9%;
 	left: 29%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-eight {
-	transform: rotate(0deg);
 	bottom: 9%;
 	left: 32%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-nine {
-	transform: rotate(0deg);
 	bottom: 9%;
 	left: 35%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-ten {
-	transform: rotate(0deg);
 	bottom: 9%;
 	left: 38%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-eleven {
-	transform: rotate(0deg);
 	bottom: 5%;
 	left: 29%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-twelve {
-	transform: rotate(0deg);
 	bottom: 5%;
 	left: 32%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-thirteen {
-	transform: rotate(0deg);
 	bottom: 5%;
 	left: 35%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-fourteen {
-	transform: rotate(0deg);
 	bottom: 5%;
 	left: 38%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-fifteen {
-	transform: rotate(0deg);
 	bottom: 1%;
 	left: 29%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-sixteen {
-	transform: rotate(0deg);
 	bottom: 1%;
 	left: 32%;
+
+	transform: rotate(0deg);
 }
 
 #card-five-seventeen {
-	transform: rotate(0deg);
 	bottom: 1%;
 	left: 35%;
+
+	transform: rotate(0deg);
 }
 
 #card-four {
-	transform: rotate(0deg);
 	top: 42.5%;
 	right: 45%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-two {
-	transform: rotate(0deg);
 	top: 47%;
 	right: 46.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-three {
-	transform: rotate(0deg);
 	bottom: 12%;
 	left: 43.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-four {
-	transform: rotate(0deg);
 	bottom: 12%;
 	left: 46.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-five {
-	transform: rotate(0deg);
 	bottom: 12%;
 	left: 49.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-six {
-	transform: rotate(0deg);
 	bottom: 12%;
 	left: 52.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-seven {
-	transform: rotate(0deg);
 	bottom: 8%;
 	left: 43.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-eight {
-	transform: rotate(0deg);
 	bottom: 8%;
 	left: 46.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-nine {
-	transform: rotate(0deg);
 	bottom: 8%;
 	left: 49.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-ten {
-	transform: rotate(0deg);
 	bottom: 8%;
 	left: 52.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-eleven {
-	transform: rotate(0deg);
 	bottom: 4%;
 	left: 43.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-twelve {
-	transform: rotate(0deg);
 	bottom: 4%;
 	left: 46.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-thirteen {
-	transform: rotate(0deg);
 	bottom: 4%;
 	left: 49.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-fourteen {
-	transform: rotate(0deg);
 	bottom: 4%;
 	left: 52.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-fifteen {
-	transform: rotate(0deg);
 	bottom: 0%;
 	left: 43.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-sixteen {
-	transform: rotate(0deg);
 	bottom: 0%;
 	left: 46.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-four-seventeen {
-	transform: rotate(0deg);
 	bottom: 0%;
 	left: 49.5%;
+
+	transform: rotate(0deg);
 }
 
 #card-three {
-	transform: rotate(-7deg);
 	top: 41%;
 	right: 34%;
+
+	transform: rotate(-7deg);
 }
 
 #card-three-two {
-	transform: rotate(-7deg);
 	top: 46%;
 	right: 35%;
+
+	transform: rotate(-7deg);
 }
 
 #card-three-three {
-	transform: rotate(0deg);
-	bottom: 13%;
 	right: 38%;
+	bottom: 13%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-four {
-	transform: rotate(0deg);
-	bottom: 13%;
 	right: 35%;
+	bottom: 13%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-five {
-	transform: rotate(0deg);
-	bottom: 13%;
 	right: 32%;
+	bottom: 13%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-six {
-	transform: rotate(0deg);
-	bottom: 13%;
 	right: 29%;
+	bottom: 13%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-seven {
-	transform: rotate(0deg);
-	bottom: 9%;
 	right: 38%;
+	bottom: 9%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-eight {
-	transform: rotate(0deg);
-	bottom: 9%;
 	right: 35%;
+	bottom: 9%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-nine {
-	transform: rotate(0deg);
-	bottom: 9%;
 	right: 32%;
+	bottom: 9%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-ten {
-	transform: rotate(0deg);
-	bottom: 9%;
 	right: 29%;
+	bottom: 9%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-eleven {
-	transform: rotate(0deg);
-	bottom: 5%;
 	right: 38%;
+	bottom: 5%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-twelve {
-	transform: rotate(0deg);
-	bottom: 5%;
 	right: 35%;
+	bottom: 5%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-thirteen {
-	transform: rotate(0deg);
-	bottom: 5%;
 	right: 32%;
+	bottom: 5%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-fourteen {
-	transform: rotate(0deg);
-	bottom: 5%;
 	right: 29%;
+	bottom: 5%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-fifteen {
-	transform: rotate(0deg);
-	bottom: 1%;
 	right: 38%;
+	bottom: 1%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-sixteen {
-	transform: rotate(0deg);
-	bottom: 1%;
 	right: 35%;
+	bottom: 1%;
+
+	transform: rotate(0deg);
 }
 
 #card-three-seventeen {
-	transform: rotate(0deg);
-	bottom: 1%;
 	right: 32%;
+	bottom: 1%;
+
+	transform: rotate(0deg);
 }
 
 #card-two {
-	transform: rotate(-15deg);
 	top: 37%;
 	right: 22%;
+
+	transform: rotate(-15deg);
 }
 
 #card-two-two {
-	transform: rotate(-15deg);
 	top: 42.5%;
 	right: 22.5%;
+
+	transform: rotate(-15deg);
 }
 
 #card-two-three {
-	transform: rotate(0deg);
-	bottom: 17%;
 	right: 24%;
+	bottom: 17%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-four {
-	transform: rotate(0deg);
-	bottom: 17%;
 	right: 21%;
+	bottom: 17%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-five {
-	transform: rotate(0deg);
-	bottom: 17%;
 	right: 18%;
+	bottom: 17%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-six {
-	transform: rotate(0deg);
-	bottom: 17%;
 	right: 15%;
+	bottom: 17%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-seven {
-	transform: rotate(0deg);
-	bottom: 12%;
 	right: 24%;
+	bottom: 12%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-eight {
-	transform: rotate(0deg);
-	bottom: 12%;
 	right: 21%;
+	bottom: 12%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-nine {
-	transform: rotate(0deg);
-	bottom: 12%;
 	right: 18%;
+	bottom: 12%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-ten {
-	transform: rotate(0deg);
-	bottom: 12%;
 	right: 15%;
+	bottom: 12%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-eleven {
-	transform: rotate(0deg);
-	bottom: 8%;
 	right: 24%;
+	bottom: 8%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-twelve {
-	transform: rotate(0deg);
-	bottom: 8%;
 	right: 21%;
+	bottom: 8%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-thirteen {
-	transform: rotate(0deg);
-	bottom: 8%;
 	right: 18%;
+	bottom: 8%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-fourteen {
-	transform: rotate(0deg);
-	bottom: 8%;
 	right: 15%;
+	bottom: 8%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-fifteen {
-	transform: rotate(0deg);
-	bottom: 4%;
 	right: 24%;
+	bottom: 4%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-sixteen {
-	transform: rotate(0deg);
-	bottom: 4%;
 	right: 21%;
+	bottom: 4%;
+
+	transform: rotate(0deg);
 }
 
 #card-two-seventeen {
-	transform: rotate(0deg);
-	bottom: 4%;
 	right: 18%;
+	bottom: 4%;
+
+	transform: rotate(0deg);
 }
 
 #card-one {
-	transform: rotate(-21deg);
 	top: 31%;
 	right: 11%;
+
+	transform: rotate(-21deg);
 }
 
 #card-one-two {
-	transform: rotate(-21deg);
 	top: 36.5%;
 	right: 11.5%;
+
+	transform: rotate(-21deg);
 }
 
 #card-one-three {
-	transform: rotate(0deg);
-	bottom: 23%;
 	right: 10%;
+	bottom: 23%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-four {
-	transform: rotate(0deg);
-	bottom: 23%;
 	right: 7%;
+	bottom: 23%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-five {
-	transform: rotate(0deg);
 	right: 4%;
 	bottom: 23%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-six {
-	transform: rotate(0deg);
-	bottom: 23%;
 	right: 1%;
+	bottom: 23%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-seven {
-	transform: rotate(0deg);
-	bottom: 19%;
 	right: 10%;
+	bottom: 19%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-eight {
-	transform: rotate(0deg);
-	bottom: 19%;
 	right: 7%;
+	bottom: 19%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-nine {
-	transform: rotate(0deg);
-	bottom: 19%;
 	right: 4%;
+	bottom: 19%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-ten {
-	transform: rotate(0deg);
-	bottom: 19%;
 	right: 1%;
+	bottom: 19%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-eleven {
-	transform: rotate(0deg);
-	bottom: 15%;
 	right: 10%;
+	bottom: 15%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-twelve {
-	transform: rotate(0deg);
-	bottom: 15%;
 	right: 7%;
+	bottom: 15%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-thirteen {
-	transform: rotate(0deg);
-	bottom: 15%;
 	right: 4%;
+	bottom: 15%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-fourteen {
-	transform: rotate(0deg);
-	bottom: 15%;
 	right: 1%;
+	bottom: 15%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-fifteen {
-	transform: rotate(0deg);
-	bottom: 11%;
 	right: 10%;
+	bottom: 11%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-sixteen {
-	transform: rotate(0deg);
-	bottom: 11%;
 	right: 7%;
+	bottom: 11%;
+
+	transform: rotate(0deg);
 }
 
 #card-one-seventeen {
-	transform: rotate(0deg);
-	bottom: 11%;
 	right: 4%;
+	bottom: 11%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 68%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-hider {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 68%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-two {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 60%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-three {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 56%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-four {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 52%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-five {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 48%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-six {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 44%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-seven {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 40%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-eight {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 36%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-nine {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 32%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-ten {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 28%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-eleven {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 24%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-twelve {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 20%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-thirteen {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 16%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-fourteen {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 12%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-fifteen {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 8%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-sixteen {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 4%;
+
+	transform: rotate(0deg);
 }
 
 #card-dealer-seventeen {
-	transform: rotate(0deg);
 	top: 4%;
 	right: 0%;
+
+	transform: rotate(0deg);
 }

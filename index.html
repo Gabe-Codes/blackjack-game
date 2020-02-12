@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./css/style.css">
 	<script defer src="./js/script.js"></script>
 	<title>Blackjack Card Game</title>
@@ -189,23 +190,26 @@
 			<button data-join="6" class="join-buttons" id="buy-in-seven">BUY
 				IN</button>
 		</div>
+		<button id="rules-button">RULES</button>
+		<button id="cheat-button">CHEAT</button>
 		<h2 id="player-turn-display">Player <span id="player-turn">1</span>'s
 			Turn:</h2>
 		</img>
 	</section>
 	<section class="resultsStyle">
 		<h1>BET RESULTS:</h1>
-		<div data-results="0" class="results-hide" id="result">Player 1 Won: $<span class="result-reset" id="last-bet-one">5</span></div>
-		<div data-results="1" class="results-hide" id="result-two">Player 2 Won: $<span class="result-reset"
-				id="last-bet-two">5</span></div>
+		<div data-results="0" class="results-hide" id="result">Player 1 Won: $<span
+				class="result-reset" id="last-bet-one">5</span></div>
+		<div data-results="1" class="results-hide" id="result-two">Player 2 Won: $<span
+				class="result-reset" id="last-bet-two">5</span></div>
 		<div data-results="2" class="results-hide" id="result-three">Player 3 Won: $<span
 				class="result-reset" id="last-bet-three">5</span></div>
 		<div data-results="3" class="results-hide" id="result-four">Player 4 Won: $<span
 				class="result-reset" id="last-bet-four">5</span></div>
 		<div data-results="4" class="results-hide" id="result-five">Player 5 Won: $<span
 				class="result-reset" id="last-bet-five">5</span></div>
-		<div data-results="5" class="results-hide" id="result-six">Player 6 Won: $<span class="result-reset"
-				id="last-bet-six">5</span></div>
+		<div data-results="5" class="results-hide" id="result-six">Player 6 Won: $<span
+				class="result-reset" id="last-bet-six">5</span></div>
 		<div data-results="6" class="results-hide" id="result-seven">Player 7 Won: $<span
 				class="result-reset" id="last-bet-seven">5</span></div>
 	</section>
@@ -216,19 +220,22 @@
 		<button class="button-choices" id="stay">STAY</button>
 		<button class="button-choices" id="hit">HIT</button>
 	</section>
-		<button data-start="0" id="start">START ROUND</button>
-		<button id="reset">RESET</button>
-	<div class="rules">
+	<button data-start="0" id="start">START ROUND</button>
+	<button id="reset">RESET</button>
+	<div id="rules">
 		<h2>HOUSE RULES:</h2>
 		<ul>
-		<li>An ace in the inital hand is always an 11</li>
-		<li>If two aces are present in the inital hand then the score is 12 (11 + 1)</li> 
-		<li>Dealer must hit on 16 and stand on 17</li>
-		<li>Players may join and leave the table after the dealer has shown his hand</li>
-		<li>Players can only split same face pairs</li>
-		<li>No splitting splits</li>
-		<li>Insurance can only be played when the dealer is showing an ace</li>
+			<li>An ace in the inital hand is always an 11</li>
+			<li>If two aces are present in the inital hand then the score is 12 (11 + 1)</li>
+			<li>Dealer must hit on 16 and stand on 17</li>
+			<li>Players may join and leave the table after the dealer has shown his hand</li>
+			<li>Players can only split same face pairs</li>
+			<li>No splitting splits</li>
+			<li>Insurance can only be played when the dealer is showing an ace</li>
 		</ul>
+	</div>
+	<div id="cheat-container">
+		<img id="cheat" src="../img/cheatsheet.jpg"></img>
 	</div>
 </body>
 

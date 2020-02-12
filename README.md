@@ -1,7 +1,7 @@
 # blackjack-game
 
 ## Description
-A game where the goal is to hit 21 and or out last the dealer through them busting
+A game where the goal is to hit 21 (in card value) and or out last the dealer through them busting
 
 ## User Stories
 
@@ -26,6 +26,10 @@ JavaScript
 
 ### Board shoing all entities
 ![All Board Entities](img/board-entities.png)
+
+## Getting Started
+
+- https://gar0085.github.io/blackjack-game/
 
 ## Future Enhancments
 - Let player split
