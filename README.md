@@ -24,7 +24,7 @@ JavaScript
 ### Initial Sketch
 ![Sketch](img/rough-sketch.jpg)
 
-### Board shoing all entities
+### Board showing all entities
 ![All Board Entities](img/board-entities.png)
 
 ## Getting Started

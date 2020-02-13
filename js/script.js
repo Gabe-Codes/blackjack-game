@@ -409,25 +409,25 @@ function startRound(e) {
 // Takes each players bet
 function playerBets() {
 	if (players.includes('0') === true) {
-		playerInfo.one.total -= playerInfo.one.bet;
+		playerInfo.one.total = negativeChecker(playerInfo.one.total, playerInfo.one.bet, playerInfo.one);
 	}
 	if (players.includes('1') === true) {
-		playerInfo.two.total -= playerInfo.two.bet;
+		playerInfo.two.total = negativeChecker(playerInfo.two.total, playerInfo.two.bet, playerInfo.two);
 	}
 	if (players.includes('2') === true) {
-		playerInfo.three.total -= playerInfo.three.bet;
+		playerInfo.three.total = negativeChecker(playerInfo.three.total, playerInfo.three.bet, playerInfo.three);
 	}
 	if (players.includes('3') === true) {
-		playerInfo.four.total -= playerInfo.four.bet;
+		playerInfo.four.total = negativeChecker(playerInfo.four.total, playerInfo.four.bet, playerInfo.four);
 	}
 	if (players.includes('4') === true) {
-		playerInfo.five.total -= playerInfo.five.bet;
+		playerInfo.five.total = negativeChecker(playerInfo.five.total, playerInfo.five.bet, playerInfo.five);
 	}
 	if (players.includes('5') === true) {
-		playerInfo.six.total -= playerInfo.six.bet;
+		playerInfo.six.total = negativeChecker(playerInfo.six.total, playerInfo.six.bet, playerInfo.six);
 	}
 	if (players.includes('6') === true) {
-		playerInfo.seven.total -= playerInfo.seven.bet;
+		playerInfo.seven.total = negativeChecker(playerInfo.seven.total, playerInfo.seven.bet, playerInfo.seven);
 	}
 	displayUpdate();
 }
@@ -663,7 +663,7 @@ function stay() {
 // Lets the player double down after the inital hand
 function doubleDown() {
 	if (players.includes('0') === true && playerInfo.one.hand === 2 && turnDisplay === 1) {
-		playerInfo.one.total -= playerInfo.one.bet;
+		playerInfo.one.total = negativeChecker(playerInfo.one.total, playerInfo.one.bet, playerInfo.one);
 		playerCards.playerOne[2].style.visibility = 'visible';
 		playerInfo.one.card = shuffledDeck.shift();
 		playerCards.playerOne[2].style.backgroundImage =
@@ -675,7 +675,7 @@ function doubleDown() {
 		stay();
 	}
 	else if (players.includes('1') === true && playerInfo.two.hand === 2 && turnDisplay === 2) {
-		playerInfo.two.total -= playerInfo.two.bet;
+		playerInfo.two.total = negativeChecker(playerInfo.two.total, playerInfo.two.bet, playerInfo.two);
 		playerCards.playerTwo[2].style.visibility = 'visible';
 		playerInfo.two.card = shuffledDeck.shift();
 		playerCards.playerTwo[2].style.backgroundImage =
@@ -687,7 +687,7 @@ function doubleDown() {
 		stay();
 	}
 	else if (players.includes('2') === true && playerInfo.three.hand === 2 && turnDisplay === 3) {
-		playerInfo.three.total -= playerInfo.three.bet;
+		playerInfo.three.total = negativeChecker(playerInfo.three.total, playerInfo.three.bet, playerInfo.three);
 		playerCards.playerThree[2].style.visibility = 'visible';
 		playerInfo.three.card = shuffledDeck.shift();
 		playerCards.playerThree[2].style.backgroundImage =
@@ -700,7 +700,7 @@ function doubleDown() {
 		stay();
 	}
 	else if (players.includes('3') === true && playerInfo.four.hand === 2 && turnDisplay === 4) {
-		playerInfo.four.total -= playerInfo.four.bet;
+		playerInfo.four.total = negativeChecker(playerInfo.four.total, playerInfo.four.bet, playerInfo.four);
 		playerCards.playerFour[2].style.visibility = 'visible';
 		playerInfo.four.card = shuffledDeck.shift();
 		playerCards.playerFour[2].style.backgroundImage =
@@ -713,7 +713,7 @@ function doubleDown() {
 		stay();
 	}
 	else if (players.includes('4') === true && playerInfo.five.hand === 2 && turnDisplay === 5) {
-		playerInfo.five.total -= playerInfo.five.bet;
+		playerInfo.five.total = negativeChecker(playerInfo.five.total, playerInfo.five.bet, playerInfo.five);
 		playerCards.playerFive[2].style.visibility = 'visible';
 		playerInfo.five.card = shuffledDeck.shift();
 		playerCards.playerFive[2].style.backgroundImage =
@@ -726,7 +726,7 @@ function doubleDown() {
 		stay();
 	}
 	else if (players.includes('5') === true && playerInfo.six.hand === 2 && turnDisplay === 6) {
-		playerInfo.six.total -= playerInfo.six.bet;
+		playerInfo.six.total = negativeChecker(playerInfo.six.total, playerInfo.six.bet, playerInfo.six);
 		playerCards.playerSix[2].style.visibility = 'visible';
 		playerInfo.six.card = shuffledDeck.shift();
 		playerCards.playerSix[2].style.backgroundImage =
@@ -738,7 +738,7 @@ function doubleDown() {
 		stay();
 	}
 	else if (players.includes('6') === true && playerInfo.seven.hand === 2 && turnDisplay === 7) {
-		playerInfo.seven.total -= playerInfo.seven.bet;
+		playerInfo.seven.total = negativeChecker(playerInfo.seven.total, playerInfo.seven.bet, playerInfo.seven);
 		playerCards.playerSeven[2].style.visibility = 'visible';
 		playerInfo.seven.card = shuffledDeck.shift();
 		playerCards.playerSeven[2].style.backgroundImage =
@@ -845,6 +845,39 @@ function turnUpdater() {
 	else return;
 }
 
+
+function negativeChecker(total, bet, player) {
+	if (total < bet || total === 0) {
+		kicker(player);
+		return total = '0 OUT OF MONEY';
+	}
+	else return total -= bet;
+}
+
+function kicker(player) {
+	if (players.includes('0') === true && player === playerInfo.one) {
+		players.splice(players.indexOf('0'), 1);
+	}
+	if (players.includes('1') === true && player === playerInfo.two) {
+		players.splice(players.indexOf('1'), 1);
+	}
+	if (players.includes('2') === true && player === playerInfo.three) {
+		players.splice(players.indexOf('2'), 1);
+	}
+	if (players.includes('3') === true && player === playerInfo.four) {
+		players.splice(players.indexOf('3'), 1);
+	}
+	if (players.includes('4') === true && player === playerInfo.five) {
+		players.splice(players.indexOf('4'), 1);
+	}
+	if (players.includes('5') === true && player === playerInfo.six) {
+		players.splice(players.indexOf('5'), 1);
+	}
+	if (players.includes('6') === true && player === playerInfo.seven) {
+		players.splice(players.indexOf('6'), 1);
+	}
+}
+
 // Plays out the dealers hand
 function dealerPlay() {
 	playerCards.playerDealerHider.style.visibility = 'hidden';
@@ -902,13 +935,13 @@ function payOutCaller() {
 			.seven.hand, playerInfo.seven.insurance);
 	}
 	
-	playerInfo.one.total = playerInfo.one.total + playerInfo.one.lastBet;
-	playerInfo.two.total = playerInfo.two.total + playerInfo.two.lastBet;
-	playerInfo.three.total = playerInfo.three.total + playerInfo.three.lastBet;
-	playerInfo.four.total = playerInfo.four.total + playerInfo.four.lastBet;
-	playerInfo.five.total = playerInfo.five.total + playerInfo.five.lastBet;
-	playerInfo.six.total = playerInfo.six.total + playerInfo.six.lastBet;
-	playerInfo.seven.total = playerInfo.seven.total + playerInfo.seven.lastBet;
+	if (playerInfo.one.total !== '0 OUT OF MONEY') playerInfo.one.total = playerInfo.one.total + playerInfo.one.lastBet;
+	if (playerInfo.two.total !== '0 OUT OF MONEY') playerInfo.two.total = playerInfo.two.total + playerInfo.two.lastBet;
+	if (playerInfo.three.total !== '0 OUT OF MONEY') playerInfo.three.total = playerInfo.three.total + playerInfo.three.lastBet;
+	if (playerInfo.four.total !== '0 OUT OF MONEY') playerInfo.four.total = playerInfo.four.total + playerInfo.four.lastBet;
+	if (playerInfo.five.total !== '0 OUT OF MONEY') playerInfo.five.total = playerInfo.five.total + playerInfo.five.lastBet;
+	if (playerInfo.six.total !== '0 OUT OF MONEY') playerInfo.six.total = playerInfo.six.total + playerInfo.six.lastBet;
+	if (playerInfo.seven.total !== '0 OUT OF MONEY') playerInfo.seven.total = playerInfo.seven.total + playerInfo.seven.lastBet;
 	
 	displayUpdate();
 }
@@ -984,6 +1017,7 @@ let constantScan = setInterval(function() {
 	if (turn > numPlayers.length && turn !== 100) {
 		dealerPlay();
 	}
+	totalUpdater();
 	turnUpdater();
 	playerChecker();
 }, 10);
