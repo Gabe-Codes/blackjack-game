@@ -281,6 +281,11 @@ function renderReset() {
 		.forEach(function(elem) {
 			elem.style.display = 'none';
 			elem.innerText = 'BUY IN';
+		})	
+
+	Array.from(textEls.playerTag)
+		.forEach(function(elem) {
+			elem.style.display = 'none';
 		})
 	
 	Array.from(resetEls.resultsReset)

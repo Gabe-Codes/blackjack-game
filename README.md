@@ -32,6 +32,7 @@ JavaScript
 - https://gar0085.github.io/blackjack-game/
 
 ## Future Enhancments
-- Let player split
+- Create split function
 - Tip the dealer
 - Dynamic card scrolling
+- Make aces always able to be 1 or 11
