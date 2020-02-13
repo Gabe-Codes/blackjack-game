@@ -57,9 +57,15 @@ section {
 }
 
 .totalsStyle,
-.resultsStyle {
+.resultsStyle,
+.player-tags {
 	color: #CFA646;
 	background-color: #04773C;
+}
+
+.player-tags {
+	position: absolute;
+	display: none;
 }
 
 h1 {
@@ -139,4 +145,53 @@ h2,
 ul,
 li {
 	background-color: #04773C;
+}
+
+#tag {
+	bottom: 34%;
+	right: 6.4%;
+
+	display: block;
+
+	transform: rotate(-22deg);
+}
+
+#tag-two {
+	bottom: 27.3%;
+	right: 19.5%;
+
+	transform: rotate(-14deg);
+}
+
+#tag-three {
+	bottom: 23%;
+	right: 33.1%;
+
+	transform: rotate(-7deg);
+}
+
+#tag-four {
+	bottom: 21.9%;
+	right: 47%;
+}
+
+#tag-five {
+	bottom: 23%;
+	left: 33.1%;
+
+	transform: rotate(7deg);
+}
+
+#tag-six {
+	bottom: 27.3%;
+	left: 19.5%;
+
+	transform: rotate(14deg);
+}
+
+#tag-seven {
+	bottom: 34%;
+	left: 6.4%;
+
+	transform: rotate(22deg);
 }
