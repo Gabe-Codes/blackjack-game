@@ -1,7 +1,7 @@
 .cards-hide {
 	visibility: hidden;
 
-	background-image: url(../img/cards/backs/blue.svg);
+	background-image: url(img/cards/backs/blue.svg);
 }
 
 #card-seven,

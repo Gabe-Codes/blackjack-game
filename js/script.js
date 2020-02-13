@@ -321,7 +321,7 @@ function postRoundClean() {
 	Array.from(resetEls.cardsHide)
 		.forEach(function(elem) {
 			elem.style.visibility = 'hidden';
-			elem.style.backgroundImage = 'url(../img/cards/backs/blue.svg)';
+			elem.style.backgroundImage = 'url(img/cards/backs/blue.svg)';
 		})
 	textEls.turnText.style.visibility = 'hidden';
 	finishedPlayers = [];
@@ -459,12 +459,12 @@ function initialHand() {
 		playerInfo.one.card = shuffledDeck.shift();
 		playerInfo.one.value = playerInfo.one.card.value;
 		playerCards.playerOne[0].style.backgroundImage =
-			`url(../img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
+			`url(img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
 		playerCards.playerOne[1].style.visibility = 'visible';
 		playerInfo.one.card = shuffledDeck.shift();
 		playerInfo.one.value = doubleAces(playerInfo.one.value, playerInfo.one.card.value);
 		playerCards.playerOne[1].style.backgroundImage =
-			`url(../img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
+			`url(img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
 		if (playerInfo.one.value === 21) playerInfo.one.blackjack = true;
 	}
 	if (players.includes('1') === true) {
@@ -472,12 +472,12 @@ function initialHand() {
 		playerInfo.two.card = shuffledDeck.shift();
 		playerInfo.two.value = playerInfo.two.card.value;
 		playerCards.playerTwo[0].style.backgroundImage =
-			`url(../img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
+			`url(img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
 		playerCards.playerTwo[1].style.visibility = 'visible';
 		playerInfo.two.card = shuffledDeck.shift();
 		playerInfo.two.value = doubleAces(playerInfo.two.value, playerInfo.two.card.value);
 		playerCards.playerTwo[1].style.backgroundImage =
-			`url(../img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
+			`url(img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
 		if (playerInfo.two.value === 21) playerInfo.two.blackjack = true;
 	}
 	if (players.includes('2') === true) {
@@ -485,12 +485,12 @@ function initialHand() {
 		playerInfo.three.card = shuffledDeck.shift();
 		playerInfo.three.value = playerInfo.three.card.value;
 		playerCards.playerThree[0].style.backgroundImage =
-			`url(../img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
+			`url(img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
 		playerCards.playerThree[1].style.visibility = 'visible';
 		playerInfo.three.card = shuffledDeck.shift();
 		playerInfo.three.value = doubleAces(playerInfo.three.value, playerInfo.three.card.value);
 		playerCards.playerThree[1].style.backgroundImage =
-			`url(../img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
+			`url(img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
 		if (playerInfo.three.value === 21) playerInfo.three.blackjack = true;
 	}
 	if (players.includes('3') === true) {
@@ -498,12 +498,12 @@ function initialHand() {
 		playerInfo.four.card = shuffledDeck.shift();
 		playerInfo.four.value = playerInfo.four.card.value;
 		playerCards.playerFour[0].style.backgroundImage =
-			`url(../img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
+			`url(img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
 		playerCards.playerFour[1].style.visibility = 'visible';
 		playerInfo.four.card = shuffledDeck.shift();
 		playerInfo.four.value = doubleAces(playerInfo.four.value, playerInfo.four.card.value);
 		playerCards.playerFour[1].style.backgroundImage =
-			`url(../img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
+			`url(img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
 		if (playerInfo.four.value === 21) playerInfo.four.blackjack = true;
 	}
 	if (players.includes('4') === true) {
@@ -511,12 +511,12 @@ function initialHand() {
 		playerInfo.five.card = shuffledDeck.shift();
 		playerInfo.five.value = playerInfo.five.card.value;
 		playerCards.playerFive[0].style.backgroundImage =
-			`url(../img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
+			`url(img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
 		playerCards.playerFive[1].style.visibility = 'visible';
 		playerInfo.five.card = shuffledDeck.shift();
 		playerInfo.five.value = doubleAces(playerInfo.five.value, playerInfo.five.card.value);
 		playerCards.playerFive[1].style.backgroundImage =
-			`url(../img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
+			`url(img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
 		if (playerInfo.five.value === 21) playerInfo.five.blackjack = true;
 	}
 	if (players.includes('5') === true) {
@@ -524,12 +524,12 @@ function initialHand() {
 		playerInfo.six.card = shuffledDeck.shift();
 		playerInfo.six.value = playerInfo.six.card.value;
 		playerCards.playerSix[0].style.backgroundImage =
-			`url(../img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
+			`url(img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
 		playerCards.playerSix[1].style.visibility = 'visible';
 		playerInfo.six.card = shuffledDeck.shift();
 		playerInfo.six.value = doubleAces(playerInfo.six.value, playerInfo.six.card.value);
 		playerCards.playerSix[1].style.backgroundImage =
-			`url(../img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
+			`url(img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
 		if (playerInfo.six.value === 21) playerInfo.six.blackjack = true;
 	}
 	if (players.includes('6') === true) {
@@ -537,12 +537,12 @@ function initialHand() {
 		playerInfo.seven.card = shuffledDeck.shift();
 		playerInfo.seven.value = playerInfo.seven.card.value;
 		playerCards.playerSeven[0].style.backgroundImage =
-			`url(../img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
+			`url(img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
 		playerCards.playerSeven[1].style.visibility = 'visible';
 		playerInfo.seven.card = shuffledDeck.shift();
 		playerInfo.seven.value = doubleAces(playerInfo.seven.value, playerInfo.seven.card.value);
 		playerCards.playerSeven[1].style.backgroundImage =
-			`url(../img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
+			`url(img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
 		if (playerInfo.seven.value === 21) playerInfo.seven.blackjack = true;
 	}
 	
@@ -551,12 +551,12 @@ function initialHand() {
 	playerInfo.dealer.card = shuffledDeck.shift();
 	playerInfo.dealer.value = playerInfo.dealer.card.value;
 	playerCards.playerDealer[0].style.backgroundImage =
-		`url(../img/cards/${playerInfo.dealer.card.suit}/${playerInfo.dealer.card.face}.svg)`;
+		`url(img/cards/${playerInfo.dealer.card.suit}/${playerInfo.dealer.card.face}.svg)`;
 	playerCards.playerDealer[1].style.visibility = 'visible';
 	playerInfo.dealer.card = shuffledDeck.shift();
 	playerInfo.dealer.value += playerInfo.dealer.card.value;
 	playerCards.playerDealer[1].style.backgroundImage =
-		`url(../img/cards/${playerInfo.dealer.card.suit}/${playerInfo.dealer.card.face}.svg)`;
+		`url(img/cards/${playerInfo.dealer.card.suit}/${playerInfo.dealer.card.face}.svg)`;
 	
 	blackjackCheck();
 	numPlayers = players.slice(0);
@@ -586,7 +586,7 @@ function hit() {
 		playerCards.playerOne[card].style.visibility = 'visible';
 		playerInfo.one.card = shuffledDeck.shift();
 		playerCards.playerOne[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
+			`url(img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
 		playerInfo.one.value = cardCalc(playerInfo.one.value, playerInfo.one.card.rank, playerInfo
 			.one.card.value);
 		playerInfo.one.hand += 1;
@@ -597,7 +597,7 @@ function hit() {
 		playerCards.playerTwo[card].style.visibility = 'visible';
 		playerInfo.two.card = shuffledDeck.shift();
 		playerCards.playerTwo[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
+			`url(img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
 		playerInfo.two.value = cardCalc(playerInfo.two.value, playerInfo.two.card.rank, playerInfo
 			.two.card.value);
 		playerInfo.two.hand += 1;
@@ -608,7 +608,7 @@ function hit() {
 		playerCards.playerThree[card].style.visibility = 'visible';
 		playerInfo.three.card = shuffledDeck.shift();
 		playerCards.playerThree[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
+			`url(img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
 		playerInfo.three.value = cardCalc(playerInfo.three.value, playerInfo.three.card.rank,
 			playerInfo.three.card.value);
 		playerInfo.three.hand += 1;
@@ -619,7 +619,7 @@ function hit() {
 		playerCards.playerFour[card].style.visibility = 'visible';
 		playerInfo.four.card = shuffledDeck.shift();
 		playerCards.playerFour[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
+			`url(img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
 		playerInfo.four.value = cardCalc(playerInfo.four.value, playerInfo.four.card.rank,
 			playerInfo.four.card.value);
 		playerInfo.four.hand += 1;
@@ -630,7 +630,7 @@ function hit() {
 		playerCards.playerFive[card].style.visibility = 'visible';
 		playerInfo.five.card = shuffledDeck.shift();
 		playerCards.playerFive[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
+			`url(img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
 		playerInfo.five.value = cardCalc(playerInfo.five.value, playerInfo.five.card.rank,
 			playerInfo.five.card.value);
 		playerInfo.five.hand += 1;
@@ -641,7 +641,7 @@ function hit() {
 		playerCards.playerSix[card].style.visibility = 'visible';
 		playerInfo.six.card = shuffledDeck.shift();
 		playerCards.playerSix[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
+			`url(img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
 		playerInfo.six.value = cardCalc(playerInfo.six.value, playerInfo.six.card.rank, playerInfo
 			.six.card.value);
 		playerInfo.six.hand += 1;
@@ -653,7 +653,7 @@ function hit() {
 		playerCards.playerSeven[card].style.visibility = 'visible';
 		playerInfo.seven.card = shuffledDeck.shift();
 		playerCards.playerSeven[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
+			`url(img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
 		playerInfo.seven.value = cardCalc(playerInfo.seven.value, playerInfo.seven.card.rank,
 			playerInfo.seven.card.value);
 		playerInfo.seven.hand += 1;
@@ -682,7 +682,7 @@ function doubleDown() {
 		playerCards.playerOne[2].style.visibility = 'visible';
 		playerInfo.one.card = shuffledDeck.shift();
 		playerCards.playerOne[2].style.backgroundImage =
-			`url(../img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
+			`url(img/cards/${playerInfo.one.card.suit}/${playerInfo.one.card.face}.svg)`;
 		playerInfo.one.value = cardCalc(playerInfo.one.value, playerInfo.one.card.rank, playerInfo
 			.one.card.value);
 		playerInfo.one.hand += 1;
@@ -696,7 +696,7 @@ function doubleDown() {
 		playerCards.playerTwo[2].style.visibility = 'visible';
 		playerInfo.two.card = shuffledDeck.shift();
 		playerCards.playerTwo[2].style.backgroundImage =
-			`url(../img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
+			`url(img/cards/${playerInfo.two.card.suit}/${playerInfo.two.card.face}.svg)`;
 		playerInfo.two.value = cardCalc(playerInfo.two.value, playerInfo.two.card.rank, playerInfo
 			.two.card.value);
 		playerInfo.two.hand += 1;
@@ -710,7 +710,7 @@ function doubleDown() {
 		playerCards.playerThree[2].style.visibility = 'visible';
 		playerInfo.three.card = shuffledDeck.shift();
 		playerCards.playerThree[2].style.backgroundImage =
-			`url(../img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
+			`url(img/cards/${playerInfo.three.card.suit}/${playerInfo.three.card.face}.svg)`;
 		playerInfo.three.value = cardCalc(playerInfo.three.value, playerInfo.three.card.rank,
 			playerInfo
 			.three.card.value);
@@ -725,7 +725,7 @@ function doubleDown() {
 		playerCards.playerFour[2].style.visibility = 'visible';
 		playerInfo.four.card = shuffledDeck.shift();
 		playerCards.playerFour[2].style.backgroundImage =
-			`url(../img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
+			`url(img/cards/${playerInfo.four.card.suit}/${playerInfo.four.card.face}.svg)`;
 		playerInfo.four.value = cardCalc(playerInfo.four.value, playerInfo.four.card.rank,
 			playerInfo
 			.four.card.value);
@@ -740,7 +740,7 @@ function doubleDown() {
 		playerCards.playerFive[2].style.visibility = 'visible';
 		playerInfo.five.card = shuffledDeck.shift();
 		playerCards.playerFive[2].style.backgroundImage =
-			`url(../img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
+			`url(img/cards/${playerInfo.five.card.suit}/${playerInfo.five.card.face}.svg)`;
 		playerInfo.five.value = cardCalc(playerInfo.five.value, playerInfo.five.card.rank,
 			playerInfo
 			.five.card.value);
@@ -755,7 +755,7 @@ function doubleDown() {
 		playerCards.playerSix[2].style.visibility = 'visible';
 		playerInfo.six.card = shuffledDeck.shift();
 		playerCards.playerSix[2].style.backgroundImage =
-			`url(../img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
+			`url(img/cards/${playerInfo.six.card.suit}/${playerInfo.six.card.face}.svg)`;
 		playerInfo.six.value = cardCalc(playerInfo.six.value, playerInfo.six.card.rank, playerInfo
 			.six.card.value);
 		playerInfo.six.hand += 1;
@@ -769,7 +769,7 @@ function doubleDown() {
 		playerCards.playerSeven[2].style.visibility = 'visible';
 		playerInfo.seven.card = shuffledDeck.shift();
 		playerCards.playerSeven[2].style.backgroundImage =
-			`url(../img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
+			`url(img/cards/${playerInfo.seven.card.suit}/${playerInfo.seven.card.face}.svg)`;
 		playerInfo.seven.value = cardCalc(playerInfo.seven.value, playerInfo.seven.card.rank,
 			playerInfo
 			.seven.card.value);
@@ -920,7 +920,7 @@ function dealerPlay() {
 		playerCards.playerDealer[card].style.visibility = 'visible';
 		playerInfo.dealer.card = shuffledDeck.shift();
 		playerCards.playerDealer[card].style.backgroundImage =
-			`url(../img/cards/${playerInfo.dealer.card.suit}/${playerInfo.dealer.card.face}.svg)`;
+			`url(img/cards/${playerInfo.dealer.card.suit}/${playerInfo.dealer.card.face}.svg)`;
 		playerInfo.dealer.value = cardCalc(playerInfo.dealer.value, playerInfo.dealer.card.rank,
 			playerInfo.dealer.card.value);
 		playerInfo.dealer.hand += 1;
