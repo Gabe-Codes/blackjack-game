@@ -36,4 +36,4 @@ JavaScript
 - Tip the dealer
 - Dynamic card scrolling
 - Make aces always able to be 1 or 11
-- Make it more obvious whos turn it is
+- Make it more obvious whos turn it is`

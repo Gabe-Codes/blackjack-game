@@ -166,10 +166,6 @@ document.getElementById('double-down')
 	.addEventListener('mouseover', buttonHover)
 document.getElementById('double-down')
 	.addEventListener('mouseout', buttonNormal)
-document.getElementById('split')
-	.addEventListener('mouseover', buttonHover)
-document.getElementById('split')
-	.addEventListener('mouseout', buttonNormal)
 document.getElementById('ins')
 	.addEventListener('mouseover', buttonHover)
 document.getElementById('ins')
@@ -580,10 +576,7 @@ function choices(e) {
 			if (playerInfo.dealer.card.rank === 'A') ins();
 			else return;
 		}
-		else {
-			if (playerInfo.one.card[0] === playerInfo.one.card[1]) split();
-			else return;
-		}
+		else return;
 	}
 }
 
@@ -785,11 +778,6 @@ function doubleDown() {
 		stay();
 	}
 	else return;
-}
-
-// Allow user to split inital hand if they are the same value
-function split() {
-	
 }
 
 // Gives the player insurance
